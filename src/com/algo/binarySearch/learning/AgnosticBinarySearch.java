@@ -1,11 +1,11 @@
-package com.practice.learning;
+package com.algo.binarySearch.learning;
 
 public class AgnosticBinarySearch {
     public static void main(String[] args) {
 
         // int arr[] = {1, 3, 4, 6, 15, 17, 23, 34, 45, 56, 78, 89};
 
-        int arr[] = {45, 35, 25, 20, 9, 5, 3, -10, -20, -30};
+        int[] arr = {45, 35, 25, 20, 9, 5, 3, -10, -20, -30};
         int key = 56;
         int index = agnosticBS(arr, key);
         System.out.println(index);
