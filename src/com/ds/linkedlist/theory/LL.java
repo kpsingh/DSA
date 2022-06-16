@@ -32,17 +32,6 @@ public class LL {
 
     }
 
-    public ListNode sort(){
-        if (head == null || head.next == null){
-            return head ;
-        }
-
-        ListNode mid = getMid(head);
-        ListNode left = sort(head);
-        ListNode right = sort(mid);
-
-    }
-
 
 
     private class ListNode {
