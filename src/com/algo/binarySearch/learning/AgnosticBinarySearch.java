@@ -1,5 +1,9 @@
 package com.algo.binarySearch.learning;
 
+/*
+in this case we don't know the sorting order i.e either ascending or descending.
+first we have to find the sorting order then apply the binary search based on that ASC or DESC.
+ */
 public class AgnosticBinarySearch {
     public static void main(String[] args) {
 
@@ -18,11 +22,13 @@ public class AgnosticBinarySearch {
 
         // Check if given array is in ascending order or in descending order
         boolean isAsc = arr[start] < arr[end];
+
         if (isAsc) {
             System.out.println("Ascending order...");
         } else {
             System.out.println("Descending order...");
         }
+
         while (start <= end) {
 
             int mid = start + (end - start) / 2;
