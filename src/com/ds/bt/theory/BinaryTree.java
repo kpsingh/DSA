@@ -11,9 +11,8 @@ class BinaryTree {
 
 		index++;
 
-		if (arr[index] == -1) {
+		if (arr[index] == -1)
 			return null;
-		}
 
 		/**
 		 * Create the Binary tree for PreOrder data given in the farm of array
@@ -26,5 +25,49 @@ class BinaryTree {
 		root.right = createBinaryTree(arr);
 
 		return root;
+	}
+
+	public void preOrder(Node root) {
+		/**
+		 * PreOrder = Root- Left - Right
+		 */
+
+		if (root == null)
+			return;
+
+		System.out.print(root.data + " ");
+		preOrder(root.left);
+		preOrder(root.right);
+
+	}
+
+	public void inOrder(Node root) {
+
+		/**
+		 * InOrder = Left - Root - Right
+		 */
+
+		if (root == null)
+			return;
+
+		inOrder(root.left);
+		System.out.print(root.data + " ");
+		inOrder(root.right);
+
+	}
+
+	public void postOrder(Node root) {
+
+		/**
+		 * PostOrder = Left - Right - Root
+		 */
+
+		if (root == null)
+			return;
+
+		postOrder(root.left);
+		postOrder(root.right);
+		System.out.print(root.data + " ");
+
 	}
 }

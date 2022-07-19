@@ -17,9 +17,18 @@ public class BinaryTreeDriver {
 
 		Node root = bt.createBinaryTree(arr);
 
-		System.out.println(root.data);
+		System.out.println("Pre Order");
+
+		bt.preOrder(root);
+
+		System.out.println("\nIn Order");
+
+		bt.inOrder(root);
+
+		System.out.println("\nPost Order");
+
+		bt.postOrder(root);
 
 	}
 
 }
-
