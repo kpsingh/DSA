@@ -99,7 +99,7 @@ class BinaryTree {
 				/**
 				 * if value poll from Q is null then is two possibilities either Q is empty or
 				 * null (to next line) if Q is empty then break other wise add the null to
-				 * differentiate the next line.
+				 * differentiate the next level.
 				 */
 
 				System.out.println();
@@ -108,7 +108,7 @@ class BinaryTree {
 					// that mean Q is empty
 					break;
 				else
-					// Q is not empty, this null is just for differentiate next line
+					// Q is not empty, this null is just for differentiate next level
 					q.add(null);
 
 			} else {
