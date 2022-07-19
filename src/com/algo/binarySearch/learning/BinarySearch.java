@@ -7,7 +7,7 @@ public class BinarySearch {
         int arr[] = {1, 3, 4, 6, 15, 17, 23, 34, 45, 56, 78, 89};
         int key = 78;
 
-       System.out.println(itreBinarySearch(arr, key));
+        System.out.println(itreBinarySearch(arr, key));
         System.out.println(recursiveBinarySearch(arr, key, 0, arr.length-1));
 
     }
@@ -51,7 +51,7 @@ public class BinarySearch {
             else
                 return recursiveBinarySearch(arr, key, start, mid-1);
         }
-        return 1;
+        return -1;
     }
 
 }

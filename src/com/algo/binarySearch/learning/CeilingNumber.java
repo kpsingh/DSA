@@ -28,7 +28,8 @@ public class CeilingNumber {
                 start = mid + 1;
             }
         }
-        // if no element found and while loop breaks that mean element is not in array and ceil of it now reside in index of start
+        // if no element found and while loop breaks that mean element is not in array and ceil of it now 
+        // reside in index of start
         return start;
 
         /*

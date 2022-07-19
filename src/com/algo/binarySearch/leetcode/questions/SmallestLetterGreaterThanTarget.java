@@ -26,4 +26,16 @@ public class SmallestLetterGreaterThanTarget {
         return letters[start % letters.length];
 
     }
+    
+    
+    public static void main(String[] args) {
+    	
+    	if ('d' > 'c') {
+    		System.out.println("Greater : True");
+    	}
+    	else {
+    		System.out.println("Greater : False");
+    	}
+    }
+    
 }
