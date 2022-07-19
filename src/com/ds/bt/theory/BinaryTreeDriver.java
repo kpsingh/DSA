@@ -28,6 +28,10 @@ public class BinaryTreeDriver {
 		System.out.println("\nPost Order");
 
 		bt.postOrder(root);
+		
+		System.out.println("\nLevel Order");
+
+		bt.levelOrder(root);
 
 	}
 
