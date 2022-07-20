@@ -87,7 +87,7 @@ class BinaryTree {
 		 * If we got null and queue is empty- break the loop and come out
 		 * 
 		 */
-		
+
 		q.add(null); // this to help in order to decide the next level
 
 		while (!q.isEmpty()) {
@@ -125,4 +125,31 @@ class BinaryTree {
 		}
 
 	}
+
+	public int countNode(Node root) {
+
+		if (root == null)
+			return 0;
+
+		return 1 + countNode(root.left) + countNode(root.right);
+	}
+
+	public int sumOfNode(Node root) {
+
+		if (root == null)
+			return 0;
+
+		return root.data + sumOfNode(root.left) + sumOfNode(root.right);
+
+	}
+
+	public int heightOfTree(Node root) {
+
+		if (root == null)
+			return 0;
+
+		return 1 + Math.max(heightOfTree(root.left), heightOfTree(root.right));
+
+	}
+
 }

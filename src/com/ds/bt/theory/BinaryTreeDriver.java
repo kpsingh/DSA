@@ -28,10 +28,22 @@ public class BinaryTreeDriver {
 		System.out.println("\nPost Order");
 
 		bt.postOrder(root);
-		
+
 		System.out.println("\nLevel Order");
 
 		bt.levelOrder(root);
+
+		System.out.println("\nNode Count");
+
+		System.out.println(bt.countNode(root));
+
+		System.out.println("\nSum of the Nodes");
+
+		System.out.println(bt.sumOfNode(root));
+
+		System.out.println("\nHeigth of the tree");
+
+		System.out.println(bt.heightOfTree(root));
 
 	}
 
