@@ -40,7 +40,7 @@ public class BinarySearch {
 
     public static int recursiveBinarySearch(int[] arr, int key, int start, int end){
 
-        while (start <= end){
+        if (start <= end){
 
             int mid = start + (end - start)/2;
 
