@@ -1,1 +1,1 @@
-# BinarySearch and Binaary Tree learning
+This repo is for my personal practtice of DS and Alog
