@@ -1,4 +1,4 @@
-package com.ds.queue;
+package com.ds.stack.queue;
 
 public class MyQueueDemo {
 
