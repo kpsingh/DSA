@@ -1,1 +1,1 @@
-This repo is for my personal practtice of DS and Alog
+This repo is for my personal practice of DS and Alog
