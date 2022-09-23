@@ -1,7 +1,11 @@
 package com.ds.tree.bs;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 class BinaryTree {
 
@@ -10,7 +14,7 @@ class BinaryTree {
 	 */
 	static int index = -1;
 
-	public Node createBinaryTree(int[] arr) {
+	public TreeNode createBinaryTree(int[] arr) {
 
 		index++;
 
@@ -23,14 +27,14 @@ class BinaryTree {
 		 * PreOrder = Root-Left-Right
 		 */
 
-		Node root = new Node(arr[index]);
+		TreeNode root = new TreeNode(arr[index]);
 		root.left = createBinaryTree(arr);
 		root.right = createBinaryTree(arr);
 
 		return root;
 	}
 
-	public void preOrder(Node root) {
+	public void preOrder(TreeNode root) {
 		/**
 		 * PreOrder = Root- Left - Right
 		 */
@@ -38,13 +42,39 @@ class BinaryTree {
 		if (root == null)
 			return;
 
-		System.out.print(root.data + " ");
+		System.out.print(root.val + " ");
 		preOrder(root.left);
 		preOrder(root.right);
 
 	}
 
-	public void inOrder(Node root) {
+	public void preOrderIterative(TreeNode root) {
+		/**
+		 * PreOrder = Root- Left - Right
+		 */
+
+		if (root == null)
+			return;
+
+		Stack<TreeNode> stack = new Stack<>();
+		stack.push(root);
+
+		while (stack.size() > 0) {
+
+			TreeNode node = stack.pop();
+			System.out.print(node.val + " ");
+
+			if (node.right != null)
+				stack.push(node.right);
+
+			if (node.left != null)
+				stack.push(node.left);
+		}
+		System.out.println();
+
+	}
+
+	public void inOrder(TreeNode root) {
 
 		/**
 		 * InOrder = Left - Root - Right
@@ -54,12 +84,44 @@ class BinaryTree {
 			return;
 
 		inOrder(root.left);
-		System.out.print(root.data + " ");
+		System.out.print(root.val + " ");
 		inOrder(root.right);
 
 	}
 
-	public void postOrder(Node root) {
+	public List<Integer> inOrderIterative(TreeNode root) {
+
+		/**
+		 * InOrder = Left - Root - Right
+		 */
+
+		List<Integer> inorder = new ArrayList<>();
+		Stack<TreeNode> stack = new Stack<>();
+
+		TreeNode node = root;
+
+		while (true) {
+
+			if (node != null) {
+				stack.push(node);
+				node = node.left;
+			} else {
+				if (stack.isEmpty())
+					break;
+
+				node = stack.pop();
+				inorder.add(node.val);
+				node = node.right;
+
+			}
+
+		}
+
+		return inorder;
+
+	}
+
+	public void postOrder(TreeNode root) {
 
 		/**
 		 * PostOrder = Left - Right - Root
@@ -70,13 +132,14 @@ class BinaryTree {
 
 		postOrder(root.left);
 		postOrder(root.right);
-		System.out.print(root.data + " ");
+		System.out.print(root.val + " ");
 
 	}
 
-	public void levelOrder(Node root) {
+	// BFS Traversal
+	public void levelOrder(TreeNode root) {
 
-		Queue<Node> q = new LinkedList<>();
+		Queue<TreeNode> q = new LinkedList<>();
 		q.add(root);
 
 		/**
@@ -92,7 +155,7 @@ class BinaryTree {
 
 		while (!q.isEmpty()) {
 
-			Node node = q.poll();
+			TreeNode node = q.poll();
 
 			if (node == null) {
 
@@ -113,7 +176,7 @@ class BinaryTree {
 
 			} else {
 
-				System.out.print(node.data + " ");
+				System.out.print(node.val + " ");
 
 				if (node.left != null)
 					q.add(node.left);
@@ -126,7 +189,7 @@ class BinaryTree {
 
 	}
 
-	public int countNode(Node root) {
+	public int countNode(TreeNode root) {
 
 		if (root == null)
 			return 0;
@@ -134,22 +197,55 @@ class BinaryTree {
 		return 1 + countNode(root.left) + countNode(root.right);
 	}
 
-	public int sumOfNode(Node root) {
+	public int sumOfNode(TreeNode root) {
 
 		if (root == null)
 			return 0;
 
-		return root.data + sumOfNode(root.left) + sumOfNode(root.right);
+		return root.val + sumOfNode(root.left) + sumOfNode(root.right);
 
 	}
 
-	public int heightOfTree(Node root) {
+	public int heightOfTree(TreeNode root) {
 
 		if (root == null)
 			return 0;
 
 		return 1 + Math.max(heightOfTree(root.left), heightOfTree(root.right));
 
+	}
+
+	// This will collect all the level order in list of list and return that list
+	public List<List<Integer>> leverOrderList(TreeNode root) {
+
+		ArrayList<List<Integer>> allLevel = new ArrayList<List<Integer>>();
+
+		if (root == null)
+			return allLevel;
+
+		Queue<TreeNode> queue = new LinkedList<>();
+		queue.add(root);
+
+		while (queue.size() > 0) {
+
+			int count = queue.size();
+
+			ArrayList<Integer> level = new ArrayList<Integer>();
+
+			for (int i = 0; i < count; i++) {
+
+				root = queue.remove();
+
+				level.add(root.val);
+
+				if (root.left != null)
+					queue.add(root.left);
+				if (root.right != null)
+					queue.add(root.right);
+			}
+			allLevel.add(level);
+		}
+		return allLevel;
 	}
 
 }
