@@ -1,4 +1,4 @@
-package com.ds.bt.theory;
+package com.ds.tree.bs;
 
 public class BinaryTreeDriver {
 
