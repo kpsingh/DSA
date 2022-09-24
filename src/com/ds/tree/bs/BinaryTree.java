@@ -47,13 +47,12 @@ class BinaryTree {
 
 	}
 
-	public void preOrderIterative(TreeNode root) {
-		/**
-		 * PreOrder = Root- Left - Right
-		 */
+	public List<Integer> preOrderIterative(TreeNode root) {
+
+		List<Integer> preOrder = new ArrayList<>();
 
 		if (root == null)
-			return;
+			return preOrder;
 
 		Stack<TreeNode> stack = new Stack<>();
 		stack.push(root);
@@ -61,7 +60,7 @@ class BinaryTree {
 		while (stack.size() > 0) {
 
 			TreeNode node = stack.pop();
-			System.out.print(node.val + " ");
+			preOrder.add(node.val);
 
 			if (node.right != null)
 				stack.push(node.right);
@@ -69,7 +68,7 @@ class BinaryTree {
 			if (node.left != null)
 				stack.push(node.left);
 		}
-		System.out.println();
+		return preOrder;
 
 	}
 
@@ -89,10 +88,6 @@ class BinaryTree {
 	}
 
 	public List<Integer> inOrderIterative(TreeNode root) {
-
-		/**
-		 * InOrder = Left - Root - Right
-		 */
 
 		List<Integer> inorder = new ArrayList<>();
 		Stack<TreeNode> stack = new Stack<>();
@@ -136,10 +131,6 @@ class BinaryTree {
 	}
 
 	public List<Integer> postOrderIterative_V1(TreeNode root) {
-
-		/**
-		 * PostOrder = Left - Right - Root
-		 */
 
 		List<Integer> postorder = new ArrayList<>();
 		Stack<TreeNode> stack = new Stack<>();
@@ -212,7 +203,42 @@ class BinaryTree {
 	}
 
 	// BFS Traversal
-	public void levelOrder(TreeNode root) {
+
+	public List<List<Integer>> leverOrder_V1(TreeNode root) {
+
+		ArrayList<List<Integer>> allLevel = new ArrayList<List<Integer>>();
+
+		if (root == null)
+			return allLevel;
+
+		Queue<TreeNode> queue = new LinkedList<>();
+		queue.add(root);
+
+		while (queue.size() > 0) {
+
+			int count = queue.size();
+
+			ArrayList<Integer> level = new ArrayList<Integer>();
+
+			for (int i = 0; i < count; i++) {
+
+				root = queue.remove();
+
+				level.add(root.val);
+
+				if (root.left != null)
+					queue.add(root.left);
+				if (root.right != null)
+					queue.add(root.right);
+			}
+			allLevel.add(level);
+		}
+		return allLevel;
+	}
+
+	// another Way for leverOrder_V1
+
+	public void levelOrder_V2(TreeNode root) {
 
 		Queue<TreeNode> q = new LinkedList<>();
 		q.add(root);
@@ -288,39 +314,6 @@ class BinaryTree {
 
 		return 1 + Math.max(heightOfTree(root.left), heightOfTree(root.right));
 
-	}
-
-	// This will collect all the level order in list of list and return that list
-	public List<List<Integer>> leverOrderList(TreeNode root) {
-
-		ArrayList<List<Integer>> allLevel = new ArrayList<List<Integer>>();
-
-		if (root == null)
-			return allLevel;
-
-		Queue<TreeNode> queue = new LinkedList<>();
-		queue.add(root);
-
-		while (queue.size() > 0) {
-
-			int count = queue.size();
-
-			ArrayList<Integer> level = new ArrayList<Integer>();
-
-			for (int i = 0; i < count; i++) {
-
-				root = queue.remove();
-
-				level.add(root.val);
-
-				if (root.left != null)
-					queue.add(root.left);
-				if (root.right != null)
-					queue.add(root.right);
-			}
-			allLevel.add(level);
-		}
-		return allLevel;
 	}
 
 }
