@@ -174,6 +174,45 @@ class BinaryTree {
 
 	}
 
+	public List<Integer> postOrderIterative_V2(TreeNode root) {
+
+		// -- 2nd approach, purely iteratively
+
+		/**
+		 * LOGIC: push each node twice onto the stack. Each time we pop a node, - if we
+		 * see that there is a same node on the stack, we know that we have not done
+		 * traversing yet, and need to keep pushing the current node's children onto the
+		 * stack. - if the stack is empty, or the top element is not the same as the
+		 * current element, we know that we're done searching with this node, thus we
+		 * can add this node to the result.
+		 */
+
+		List<Integer> ans = new ArrayList<>();
+		Stack<TreeNode> stack = new Stack<>();
+
+		if (root != null) {
+			stack.push(root);
+			stack.push(root);
+		}
+		while (!stack.isEmpty()) {
+
+			TreeNode curr = stack.pop();
+
+			if (!stack.isEmpty() && curr == stack.peek()) {
+				if (curr.right != null) {
+					stack.push(curr.right);
+					stack.push(curr.right);
+				}
+				if (curr.left != null) {
+					stack.push(curr.left);
+					stack.push(curr.left);
+				}
+			} else
+				ans.add(curr.val);
+		}
+		return ans;
+	}
+
 	// BFS Traversal
 	public void levelOrder(TreeNode root) {
 
