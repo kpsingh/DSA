@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
-import apple.laf.JRSUIConstants.Size;
-
 class BinaryTree {
 
 	/**
