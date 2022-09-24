@@ -1,11 +1,12 @@
 package com.ds.tree.bs;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
+
+import apple.laf.JRSUIConstants.Size;
 
 class BinaryTree {
 
@@ -133,6 +134,43 @@ class BinaryTree {
 		postOrder(root.left);
 		postOrder(root.right);
 		System.out.print(root.val + " ");
+
+	}
+
+	public List<Integer> postOrderIterative_V1(TreeNode root) {
+
+		/**
+		 * PostOrder = Left - Right - Root
+		 */
+
+		List<Integer> postorder = new ArrayList<>();
+		Stack<TreeNode> stack = new Stack<>();
+		Stack<TreeNode> finalStack = new Stack<>();
+
+		if (root == null)
+			return postorder;
+
+		stack.push(root);
+
+		while (stack.size() > 0) {
+
+			TreeNode node = stack.pop();
+
+			finalStack.push(node);
+
+			if (node.left != null)
+				stack.push(node.left);
+
+			if (node.right != null)
+				stack.push(node.right);
+		}
+
+		while (finalStack.size() > 0) {
+
+			postorder.add(finalStack.pop().val);
+		}
+
+		return postorder;
 
 	}
 
