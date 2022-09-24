@@ -33,6 +33,7 @@ class BinaryTree {
 		return root;
 	}
 
+	// DFS Traversal
 	public void preOrder(TreeNode root) {
 		/**
 		 * PreOrder = Root- Left - Right
@@ -72,6 +73,7 @@ class BinaryTree {
 
 	}
 
+	// DFS Traversal
 	public void inOrder(TreeNode root) {
 
 		/**
@@ -106,15 +108,13 @@ class BinaryTree {
 				node = stack.pop();
 				inorder.add(node.val);
 				node = node.right;
-
 			}
-
 		}
-
 		return inorder;
 
 	}
 
+	// DFS Traversal
 	public void postOrder(TreeNode root) {
 
 		/**
@@ -183,22 +183,27 @@ class BinaryTree {
 			stack.push(root);
 			stack.push(root);
 		}
+
 		while (!stack.isEmpty()) {
 
 			TreeNode curr = stack.pop();
 
 			if (!stack.isEmpty() && curr == stack.peek()) {
+
 				if (curr.right != null) {
 					stack.push(curr.right);
 					stack.push(curr.right);
 				}
+
 				if (curr.left != null) {
 					stack.push(curr.left);
 					stack.push(curr.left);
 				}
 			} else
+
 				ans.add(curr.val);
 		}
+
 		return ans;
 	}
 
@@ -228,15 +233,18 @@ class BinaryTree {
 
 				if (root.left != null)
 					queue.add(root.left);
+
 				if (root.right != null)
 					queue.add(root.right);
 			}
+
 			allLevel.add(level);
 		}
+
 		return allLevel;
 	}
 
-	// another Way for leverOrder_V1
+	// another Way for BFS Traversal
 
 	public void levelOrder_V2(TreeNode root) {
 
@@ -307,12 +315,89 @@ class BinaryTree {
 
 	}
 
+	// Brute force approach for height of the tree
 	public int heightOfTree(TreeNode root) {
 
 		if (root == null)
 			return 0;
 
-		return 1 + Math.max(heightOfTree(root.left), heightOfTree(root.right));
+		int lh = heightOfTree(root.left);
+		int rh = heightOfTree(root.right);
+
+		return 1 + Math.max(lh, rh);
+
+	}
+
+	public boolean isBalanced_BruteForce(TreeNode root) {
+
+		if (root == null)
+			return true;
+
+		int l = this.heightOfTree(root.left);
+		int r = this.heightOfTree(root.right);
+		int diff = Math.abs(l - r);
+
+		return diff > 1 ? false : (isBalanced(root.left) && isBalanced(root.right));
+
+	}
+
+	/**
+	 * 
+	 * Advance version of Height and balance check
+	 * 
+	 * return the actual height only if it is balanced BT otherwise return -1;
+	 * 
+	 */
+
+	private int dfsHeight(TreeNode root) {
+
+		if (root == null)
+			return 0;
+
+		int lh = dfsHeight(root.left);
+		if (lh == -1)
+			return -1;
+
+		int rh = dfsHeight(root.right);
+		if (rh == -1)
+			return -1;
+
+		if (Math.abs(lh - rh) > 1)
+			return -1;
+
+		return Math.max(lh, rh) + 1;
+
+	}
+
+	public boolean isBalanced(TreeNode root) {
+		return dfsHeight(root) != -1;
+
+	}
+
+	/**
+	 * Diameter of a tree
+	 */
+
+	private int diameter = 0;
+
+	public int diameterOfBinaryTree(TreeNode root) {
+
+		getDiameter(root);
+		return diameter;
+
+	}
+
+	private int getDiameter(TreeNode root) {
+
+		if (root == null)
+			return 0;
+
+		int lh = getDiameter(root.left);
+		int rh = getDiameter(root.right);
+
+		diameter = Math.max(diameter, lh + rh);
+
+		return 1 + Math.max(lh, rh);
 
 	}
 

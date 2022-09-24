@@ -1,7 +1,5 @@
 package com.ds.tree.bs;
 
-import java.util.List;
-
 public class BinaryTreeDriver {
 
 	public static void main(String[] args) {
@@ -21,14 +19,7 @@ public class BinaryTreeDriver {
 
 		TreeNode root = bt.createBinaryTree(arr);
 
-		List<List<Integer>> leverOrderList = bt.leverOrderList(root);
-		for (List<Integer> level : leverOrderList) {
-			System.out.println(level);
-		}
 		
-		
-		bt.preOrderIterative(root);
-		bt.preOrder(root);
 		
 
 	}
