@@ -1,59 +1,65 @@
 package com.ds.stack.queue;
 
-public class MyCircularQueue {
+class MyCircularQueue {
 
-	int front = 0;
-	int back = 0;
-	int size = 0;
+	private final int k;
+	private int[] q;
+	private int size = 0;
+	private int front = 0;
+	private int rear;
 
-	int[] data;
-
+	/** Initialize your data structure here. Set the size of the queue to be k. */
 	public MyCircularQueue(int k) {
-		data = new int[k];
+		this.k = k;
+		this.q = new int[k];
+		this.rear = k - 1;
 	}
 
+	/**
+	 * Insert an element into the circular queue. Return true if the operation is
+	 * successful.
+	 */
 	public boolean enQueue(int value) {
 		if (isFull())
 			return false;
 
-		data[back++] = value;
-		back = back % data.length;
-		size++;
-
+		rear = ++rear % k;
+		q[rear] = value;
+		++size;
 		return true;
-
 	}
 
+	/**
+	 * Delete an element from the circular queue. Return true if the operation is
+	 * successful.
+	 */
 	public boolean deQueue() {
 		if (isEmpty())
 			return false;
 
-		front++;
-		front = front % data.length;
-		size--;
-
+		front = ++front % k;
+		--size;
 		return true;
-
 	}
 
+	/** Get the front item from the queue. */
 	public int Front() {
-
-		return data[front];
-
+		return isEmpty() ? -1 : q[front];
 	}
 
+	/** Get the last item from the queue. */
 	public int Rear() {
-		return data[back];
-
+		return isEmpty() ? -1 : q[rear];
 	}
 
+	/** Checks whether the circular queue is empty or not. */
 	public boolean isEmpty() {
 		return size == 0;
-
 	}
 
+	/** Checks whether the circular queue is full or not. */
 	public boolean isFull() {
-		return size == data.length;
+		return size == k;
 	}
 
 }
