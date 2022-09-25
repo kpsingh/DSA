@@ -1,9 +1,12 @@
 package com.ds.tree.bs;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Set;
 import java.util.Stack;
 
 class BinaryTree {
@@ -419,6 +422,10 @@ class BinaryTree {
 
 	/**
 	 * LCA : Lowest Common Ancestor in Binary Tree
+	 * 
+	 * https://www.youtube.com/watch?v=KobQcxdaZKY
+	 * 
+	 * https://afteracademy.com/blog/lowest-common-ancestor-of-a-binary-tree#:~:text=An%20intuition%20for%20an%20iterative,as%20we%20traverse%20the%20tree.
 	 */
 
 	public TreeNode LCA(TreeNode root, TreeNode p, TreeNode q) {
@@ -439,6 +446,48 @@ class BinaryTree {
 		}
 
 		return left != null ? left : right;
+
+	}
+
+	public TreeNode LCA_Iterative(TreeNode root, TreeNode node1, TreeNode node2) {// This is iterative approach
+
+		if (root == null || root == node1 || root == node2)
+			return root;
+
+		HashMap<TreeNode, TreeNode> map = new HashMap<>();
+		Stack<TreeNode> stack = new Stack<>();
+
+		map.put(root, null);
+		stack.push(root);
+
+		while (!map.containsKey(node1) || !map.containsKey(node1)) {
+
+			TreeNode node = stack.pop();
+
+			if (node.right != null) {
+				map.put(node.right, node);
+				stack.push(node.right);
+			}
+
+			if (node.left != null) {
+				map.put(node.left, node);
+				stack.push(node.left);
+			}
+
+		}
+
+		Set<TreeNode> path = new HashSet<>();
+
+		while (node1 != null) {
+			path.add(node1);
+			node1 = map.get(node1);
+		}
+
+		while (!path.contains(node2)) {
+			node2 = map.get(node2);
+		}
+
+		return node2;
 
 	}
 
