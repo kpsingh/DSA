@@ -17,7 +17,7 @@ class BinaryTree {
 
 		index++;
 
-		if (arr[index] == -1)
+		if (index >= arr.length || arr[index] == -1)
 			return null;
 
 		/**
@@ -398,6 +398,47 @@ class BinaryTree {
 		diameter = Math.max(diameter, lh + rh);
 
 		return 1 + Math.max(lh, rh);
+
+	}
+
+	/**
+	 * If two trees are same or not
+	 */
+
+	public boolean isSameTree(TreeNode p, TreeNode q) {
+
+		if (p == null & q == null)
+			return true;
+
+		if (p == null || q == null)
+			return false;
+
+		return (p.val == q.val) && (isSameTree(p.left, q.left)) && (isSameTree(p.right, q.right));
+
+	}
+
+	/**
+	 * LCA : Lowest Common Ancestor in Binary Tree
+	 */
+
+	public TreeNode LCA(TreeNode root, TreeNode p, TreeNode q) {
+
+		if (root == null)
+			return null;
+
+		if (root == p || root == q) {
+			return root;
+		}
+
+		TreeNode left = LCA(root.left, p, q);
+
+		TreeNode right = LCA(root.right, p, q);
+
+		if (left != null && right != null) {
+			return root;
+		}
+
+		return left != null ? left : right;
 
 	}
 
