@@ -16,7 +16,7 @@ public class MyCircularQueue {
 		if (isFull())
 			return false;
 
-		data[back] = value;
+		data[back++] = value;
 		back = back % data.length;
 		size++;
 
@@ -29,6 +29,7 @@ public class MyCircularQueue {
 			return false;
 
 		front++;
+		front = front % data.length;
 		size--;
 
 		return true;
