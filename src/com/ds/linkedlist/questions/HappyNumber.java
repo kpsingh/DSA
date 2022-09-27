@@ -42,8 +42,6 @@ public class HappyNumber {
 
 		}
 
-		return true;
-
 	}
 
 	private int getNext(int n) {
