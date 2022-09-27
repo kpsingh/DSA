@@ -1,6 +1,7 @@
 package com.ds.linkedlist.questions;
 
-import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 /*
 https://leetcode.com/problems/happy-number/
@@ -24,21 +25,21 @@ public class HappyNumber {
 		if (n == 0)
 			return false;
 
-		HashMap<Integer, Boolean> map = new HashMap<>();
+		Set<Integer> set = new HashSet<>();
 
 		while (true) {
 
-			map.put(n, true);
+			set.add(n);
 
 			n = getNext(n);
 
 			if (n == 1)
 				return true;
 
-			if (map.containsKey(n))
+			if (set.contains(n))
 				return false;
 			else
-				map.put(n, true);
+				set.add(n);
 
 		}
 
