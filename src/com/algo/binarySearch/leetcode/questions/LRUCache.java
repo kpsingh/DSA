@@ -5,7 +5,7 @@ import java.util.HashMap;
 class LRUCache {
 
 	private int capacity;
-	private HashMap<Integer, Node> hs = new HashMap<Integer, Node>();
+	private HashMap<Integer, Node> map = new HashMap<Integer, Node>();
 	private Node head = new Node(-1, -1);
 	private Node tail = new Node(-1, -1);
 
@@ -16,32 +16,32 @@ class LRUCache {
 	}
 
 	public int get(int key) {
-		if (!hs.containsKey(key)) {
+		if (!map.containsKey(key)) {
 			return -1;
 		}
-		Node current = hs.get(key);
+		Node current = map.get(key);
 		current.prev.next = current.next;
 		current.next.prev = current.prev;
 		moveToTail(current);
 
-		return hs.get(key).value;
+		return map.get(key).value;
 
 	}
 
 	public void put(int key, int value) {
 		if (get(key) != -1) {
-			hs.get(key).value = value;
+			map.get(key).value = value;
 			return;
 		}
 
-		if (hs.size() == capacity) {
-			hs.remove(head.next.key);
+		if (map.size() == capacity) {
+			map.remove(head.next.key);
 			head.next = head.next.next;
 			head.next.prev = head;
 		}
 
 		Node insert = new Node(key, value);
-		hs.put(key, insert);
+		map.put(key, insert);
 		moveToTail(insert);
 	}
 
@@ -67,7 +67,7 @@ class LRUCache {
 	}
 
 	public static void main(String[] args) {
-		
+
 		LRUCache lRUCache = new LRUCache(2);
 		lRUCache.put(1, 1); // cache is {1=1}
 		lRUCache.put(2, 2); // cache is {1=1, 2=2}
