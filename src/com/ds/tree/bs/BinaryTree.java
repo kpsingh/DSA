@@ -1,6 +1,7 @@
 package com.ds.tree.bs;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -248,9 +249,44 @@ class BinaryTree {
 	}
 
 	public List<List<Integer>> leverOrder_Zigzag(TreeNode root) {
-		
-		
-		
+
+		List<List<Integer>> allLevels = new ArrayList<>();
+
+		if (root == null)
+			return allLevels;
+
+		Queue<TreeNode> queue = new LinkedList<>();
+		queue.add(root);
+
+		boolean flip = false;
+
+		while (!queue.isEmpty()) {
+
+			int length = queue.size();
+			ArrayList<Integer> level = new ArrayList<>();
+
+			for (int i = 0; i < length; i++) {
+
+				TreeNode node = queue.remove();
+				level.add(node.val);
+
+				if (node.left != null)
+					queue.add(node.left);
+
+				if (node.right != null)
+					queue.add(node.right);
+
+			}
+
+			if (flip)
+				Collections.reverse(level);
+
+			allLevels.add(level);
+			flip = !flip;
+
+		}
+
+		return allLevels;
 
 	}
 
