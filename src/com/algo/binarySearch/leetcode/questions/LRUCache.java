@@ -45,11 +45,11 @@ class LRUCache {
 		moveToTail(insert);
 	}
 
-	private void moveToTail(Node current) {
-		current.prev = tail.prev;
-		tail.prev = current;
-		current.prev.next = current;
-		current.next = tail;
+	private void moveToTail(Node node) {
+		node.prev = tail.prev;
+		tail.prev = node;
+		node.prev.next = node;
+		node.next = tail;
 	}
 
 	private class Node {
