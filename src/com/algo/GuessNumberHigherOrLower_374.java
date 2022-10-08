@@ -1,4 +1,4 @@
-package com.algo.binarySearch.leetcode.questions;
+package com.algo;
 /*
 https://leetcode.com/problems/guess-number-higher-or-lower/
 

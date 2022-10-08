@@ -1,4 +1,4 @@
-package com.algo.binarySearch.leetcode.questions;
+package com.algo;
 
 /*
 https://www.geeksforgeeks.org/find-position-element-sorted-array-infinite-numbers/

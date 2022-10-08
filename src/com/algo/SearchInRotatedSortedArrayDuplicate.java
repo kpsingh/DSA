@@ -1,4 +1,4 @@
-package com.algo.binarySearch.leetcode.questions;
+package com.algo;
 
 public class SearchInRotatedSortedArrayDuplicate {
 }

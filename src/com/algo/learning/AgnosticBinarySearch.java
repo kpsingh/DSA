@@ -1,4 +1,4 @@
-package com.algo.binarySearch.learning;
+package com.algo.learning;
 
 /*
 in this case we don't know the sorting order i.e either ascending or descending.
