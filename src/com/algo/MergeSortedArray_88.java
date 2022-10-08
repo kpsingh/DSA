@@ -24,7 +24,7 @@ public class MergeSortedArray_88 {
 		/**
 		 * Since we know that end of the first arrays has zeros then we can start
 		 * putting the element from the end in order to be largest since we know the
-		 * both arrays are sorte in nature and largest will be either end of 1st array
+		 * both arrays are store in nature and largest will be either end of 1st array
 		 * to the end of 2nd array
 		 */
 
@@ -65,6 +65,14 @@ public class MergeSortedArray_88 {
 	}
 
 	public static void merge2(int[] nums1, int m, int[] nums2, int n) {
+		
+		/**
+		 * Since we know that end of the first arrays has zeros then we can start
+		 * putting the element from the end in order to be largest since we know the
+		 * both arrays are store in nature and largest will be either end of 1st array
+		 * to the end of 2nd array
+		 */
+
 
 		int insertPointer = (m--) + (n--) - 1;
 
