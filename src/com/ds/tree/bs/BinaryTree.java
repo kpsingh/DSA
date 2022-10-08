@@ -361,7 +361,7 @@ class BinaryTree {
 
 	}
 
-	// Brute force approach for height of the tree
+	// Brute force approach for height of the tree and if it is balanced
 	public int heightOfTree(TreeNode root) {
 
 		if (root == null)
