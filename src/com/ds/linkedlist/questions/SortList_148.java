@@ -29,26 +29,14 @@ public class SortList_148 {
 	}
 
 	public ListNode sortList(ListNode head) {
-
 		if (head == null || head.next == null)
 			return head;
 
-		// divide the list into two parts
+		// step 1. cut the list to two halves
 
-		ListNode mid = split(head);
-
-		ListNode left = sortList(head);
-		ListNode right = sortList(mid);
-
-		return mergeTwoLists(left, right);
-
-	}
-
-	ListNode split(ListNode head) {
-
+		ListNode prev = null;
 		ListNode slow = head;
 		ListNode fast = head;
-		ListNode prev = null;
 
 		while (fast != null && fast.next != null) {
 			prev = slow;
@@ -56,16 +44,21 @@ public class SortList_148 {
 			fast = fast.next.next;
 		}
 
-		prev.next = null;
+		prev.next = null; // making next as null we are cutting the list into two parts
 
-		return slow;
+		// step 2. sort each half
 
+		ListNode left = sortList(head);
+		ListNode right = sortList(slow);
+
+		// step 3. return the sorted list
+		return mergeTwoLists(left, right);
 	}
 
-	ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+	private ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 
 		if (list1 == null || list2 == null)
-			return list1 != null ? list1 : list2;
+			return list1 == null ? list2 : list1;
 
 		ListNode ans = new ListNode(0);
 		ListNode head = ans;
