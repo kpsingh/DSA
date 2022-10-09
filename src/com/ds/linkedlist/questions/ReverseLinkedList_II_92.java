@@ -36,6 +36,11 @@ public class ReverseLinkedList_II_92 {
 		if (head == null || head.next == null)
 			return head;
 
+		/**
+		 * Idea is to divide the list into 3 parts, part 'a' and part 'c' no change only
+		 * part 'b' need to be reversed and then connect to part 'a' and part 'c'.
+		 */
+
 		// Step 1.
 		ListNode dummy = new ListNode(0, head);
 		ListNode prev = dummy;
