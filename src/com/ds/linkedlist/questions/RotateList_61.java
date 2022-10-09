@@ -4,38 +4,33 @@ public class RotateList_61 {
 
 	public ListNode rotateRight(ListNode head, int k) {
 
-		if (head == null || head.next == null)
+		if (k <= 0 || head == null || head.next == null)
 			return head;
 
-		ListNode dummy = new ListNode(0, head);
+		int length = 1;
 		ListNode curr = head;
-
-		while (k > 0) {
+		while (curr.next != null) {
 			curr = curr.next;
-			k--;
+			length++;
 		}
 
-		ListNode prev = dummy;
+		curr.next = head;
 
-		while (curr != null) {
-			prev = prev.next;
+		k = k % length;
+
+		int skip = length - k - 1;
+
+		curr = head;
+
+		for (int i = 0; i < skip; i++) {
 			curr = curr.next;
 		}
 
-		ListNode head2 = prev.next;
-		prev.next = null;
+		head = curr.next;
 
-		curr = head2;
+		curr.next = null;
 
-		while (curr != null) {
-			prev = curr;
-			curr = curr.next;
-
-		}
-
-		prev.next = dummy.next;
-
-		return head2;
+		return head;
 
 	}
 
