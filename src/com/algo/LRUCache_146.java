@@ -2,7 +2,7 @@ package com.algo;
 
 import java.util.HashMap;
 
-public class LRUCache2 {
+public class LRUCache_146 {
 
 	private final int capacity;
 
@@ -11,7 +11,7 @@ public class LRUCache2 {
 	Node head = new Node(-1, -1);
 	Node tail = new Node(-1, -1);
 
-	public LRUCache2(int capacity) {
+	public LRUCache_146(int capacity) {
 		this.capacity = capacity;
 		head.next = tail;
 		tail.prev = head;

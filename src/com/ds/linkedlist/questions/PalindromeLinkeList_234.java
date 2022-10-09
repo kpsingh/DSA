@@ -5,6 +5,73 @@ import java.util.ArrayList;
 public class PalindromeLinkeList_234 {
 
 	public boolean isPalindrome(ListNode head) {
+		if (head == null || head.next == null)
+			return true;
+
+		// This is in place algorithm
+
+		ListNode midle = getMiddle(head);
+		ListNode head2 = reverse(midle);
+		ListNode backUp = head2;// keeping backup so post Palindrome check we need to revert the original list
+
+		while (head != null && head2 != null) {
+
+			if (head.val != head2.val) {
+				/**
+				 * if we are not bothering reverting back the original list then simply we can
+				 * return false from here instead of break;
+				 */
+
+				break;
+			}
+
+			head = head.next;
+			head2 = head2.next;
+		}
+
+		reverse(backUp); // make the reverse list as original
+
+		/**
+		 * if any one list is empty that mean no mismatch found ->> its Palindrome
+		 */
+
+		return head == null || head2 == null;
+
+	}
+
+	private ListNode getMiddle(ListNode head) {
+		if (head == null || head.next == null)
+			return head;
+
+		ListNode slow = head;
+		ListNode fast = head;
+
+		while (fast != null && fast.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+		return slow;
+	}
+
+	private ListNode reverse(ListNode head) {
+		if (head == null || head.next == null)
+			return head;
+
+		ListNode prev = null;
+		ListNode curr = head;
+
+		while (curr != null) {
+			ListNode next = curr.next;
+			curr.next = prev;
+			prev = curr;
+			curr = next;
+		}
+		return prev;
+	}
+
+	public boolean isPalindrome_ExtraMemory(ListNode head) {
+
+		// this approach need an O(N) space complexity
 
 		if (head == null || head.next == null)
 			return true;
@@ -25,60 +92,4 @@ public class PalindromeLinkeList_234 {
 		return true;
 
 	}
-
-	public boolean isPalindrome_Recusrsive(ListNode head) {
-
-		if (head == null || head.next == null)
-			return true;
-
-		ListNode mid = getMidle(head);
-		ListNode head2 = reverse(mid);
-		ListNode back = head2;
-
-		while (head != null && head2 != null) {
-			if (head.val != head2.val)
-				break;
-		}
-
-		reverse(back);
-
-		return head == null || head2 == null;
-
-	}
-
-	private ListNode reverse(ListNode head) {
-
-		if (head == null || head.next == null)
-			return head;
-
-		ListNode prev = null;
-		ListNode curr = head;
-		ListNode next = head.next;
-
-		while (curr != null) {
-			curr.next = prev;
-			prev = curr;
-			curr = next;
-			next = next.next;
-		}
-
-		return prev;
-
-	}
-
-	private ListNode getMidle(ListNode head) {
-		if (head == null || head.next == null)
-			return head;
-
-		ListNode slow = head;
-		ListNode fast = head;
-
-		while (fast.next != null) {
-			slow = slow.next;
-			fast = fast.next.next;
-		}
-
-		return slow;
-	}
-
 }
