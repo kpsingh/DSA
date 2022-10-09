@@ -10,7 +10,7 @@ public class MergeSortedArray_88 {
 
 		// System.out.println(Arrays.toString(nums1));
 
-		merge(nums1, 3, nums2, 3);
+		merge2(nums1, 3, nums2, 3);
 
 		System.out.println(Arrays.toString(nums1));
 
@@ -65,7 +65,7 @@ public class MergeSortedArray_88 {
 	}
 
 	public static void merge2(int[] nums1, int m, int[] nums2, int n) {
-		
+
 		/**
 		 * Since we know that end of the first arrays has zeros then we can start
 		 * putting the element from the end in order to be largest since we know the
@@ -73,16 +73,16 @@ public class MergeSortedArray_88 {
 		 * to the end of 2nd array
 		 */
 
-
 		int insertPointer = (m--) + (n--) - 1;
 
-		while (n >= 0 && m >= 0) {
+		while (m >= 0 && n >= 0) {
 			nums1[insertPointer--] = nums1[m] > nums2[n] ? nums1[m--] : nums2[n--];
 		}
-		
+
 		while (n >= 0) {
 			nums1[insertPointer--] = nums2[n--];
 		}
+
 	}
 
 }
