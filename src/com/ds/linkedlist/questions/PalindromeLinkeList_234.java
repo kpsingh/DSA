@@ -11,7 +11,9 @@ public class PalindromeLinkeList_234 {
 		// This is in place algorithm
 
 		ListNode midle = getMiddle(head);
+
 		ListNode head2 = reverse(midle);
+
 		ListNode backUp = head2;// keeping backup so post Palindrome check we need to revert the original list
 
 		while (head != null && head2 != null) {
@@ -32,10 +34,20 @@ public class PalindromeLinkeList_234 {
 		reverse(backUp); // make the reverse list as original
 
 		/**
-		 * if any one list is empty that mean no mismatch found ->> its Palindrome
+		 * if any one list is empty that mean no mismatch found and we never entered
+		 * into break ->> its Palindrome
 		 */
 
 		return head == null || head2 == null;
+
+		/**
+		 * advance way for above
+		 * 
+		 * if (head == null || head2 == null) return true;
+		 * 
+		 * else return false;
+		 * 
+		 */
 
 	}
 
