@@ -41,7 +41,7 @@ public class PalindromeLinkeList_234 {
 		return head == null || head2 == null;
 
 		/**
-		 * advance way for above
+		 * advance way for below
 		 * 
 		 * if (head == null || head2 == null) return true;
 		 * 
