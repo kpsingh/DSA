@@ -505,7 +505,7 @@ class BinaryTree {
 		map.put(root, null);
 		stack.push(root);
 
-		while (!map.containsKey(node1) || !map.containsKey(node1)) {
+		while (!map.containsKey(node1) || !map.containsKey(node2)) {
 
 			TreeNode node = stack.pop();
 
