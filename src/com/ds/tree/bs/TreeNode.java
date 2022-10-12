@@ -1,9 +1,9 @@
 package com.ds.tree.bs;
 
-class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
+public class TreeNode {
+	public int val;
+	public TreeNode left;
+	public TreeNode right;
 
 	public TreeNode(int data) {
 		this.val = data;
