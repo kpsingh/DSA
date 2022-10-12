@@ -2,25 +2,26 @@ package com.ds.linkedlist.questions;
 
 public class MergeKSortedLists {
 
-	public ListNode mergeKLists(ListNode[] lists) {
-		if (lists == null)
+	public ListNode mergeKLists(ListNode[] arr) {
+		
+		if (arr == null || arr.length == 0)
 			return null;
 
-		return mergeKLists(lists, 0, lists.length - 1);
+		return mergeKLists(arr, 0, arr.length - 1);
 
 	}
 
-	private ListNode mergeKLists(ListNode[] lists, int start, int end) {
+	private ListNode mergeKLists(ListNode[] arr, int start, int end) {
 
 		if (start == end) {
-			return lists[start];
+			return arr[start];
 		}
 		// Mid of list of lists
 		int mid = start + (end - start) / 2;
 		// Recursive call for left sublist
-		ListNode left = mergeKLists(lists, start, mid);
+		ListNode left = mergeKLists(arr, start, mid);
 		// Recursive call for right sublist
-		ListNode right = mergeKLists(lists, mid + 1, end);
+		ListNode right = mergeKLists(arr, mid + 1, end);
 		// Merge the left and right sublist
 		return mergeTwoLists(left, right);
 	}
