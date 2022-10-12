@@ -536,4 +536,27 @@ class BinaryTree {
 
 	}
 
+	// https://leetcode.com/problems/invert-binary-tree/description/
+
+	public TreeNode invertTree(TreeNode root) {
+
+		if (root == null)
+			return root;
+
+		// swap the node
+		TreeNode temp = root.left;
+		root.left = root.right;
+		root.right = temp;
+
+		// do the same for left subtree and right subtree
+
+		invertTree(root.left);
+		invertTree(root.right);
+
+		// once done for left and right then return
+
+		return root;
+
+	}
+
 }
