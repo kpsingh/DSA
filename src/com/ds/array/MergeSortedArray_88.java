@@ -26,6 +26,7 @@ public class MergeSortedArray_88 {
 		}
 
 		while (n >= 0) {
+			
 			nums1[insertPosition--] = nums2[n--];
 		}
 
