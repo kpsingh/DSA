@@ -60,10 +60,12 @@ public class RotateArray_189 {
 
 	private static void reverse(int[] nums, int start, int end) {
 
-		for (int i = start, j = end; i < j; i++, j--) {
-			int temp = nums[i];
-			nums[i] = nums[j];
-			nums[j] = temp;
+		while (start < end) {
+			int temp = nums[start];
+			nums[start] = nums[end];
+			nums[end] = temp;
+			start++;
+			end --;
 		}
 	}
 }
