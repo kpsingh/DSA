@@ -1,4 +1,4 @@
-package com.algo;
+package com.ds.stack.queue;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

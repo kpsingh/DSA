@@ -1,4 +1,4 @@
-package com.algo.learning;
+package com.algo.array;
 
 /*
 in this case we don't know the sorting order i.e either ascending or descending.

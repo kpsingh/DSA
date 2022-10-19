@@ -1,4 +1,4 @@
-package com.algo;
+package com.algo.array;
 
 public class NumberOfRotation {
     public static void main(String[] args) {

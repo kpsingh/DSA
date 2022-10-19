@@ -1,4 +1,4 @@
-package com.algo;
+package com.algo.array;
 
 /*
 https://www.geeksforgeeks.org/find-position-element-sorted-array-infinite-numbers/

@@ -1,4 +1,4 @@
-package com.ds.stack.queue.questions;
+package com.ds.stack.queue;
 
 import java.util.HashMap;
 import java.util.Map;

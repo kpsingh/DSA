@@ -1,4 +1,4 @@
-package com.algo;
+package com.algo.array;
 /*
 https://leetcode.com/problems/guess-number-higher-or-lower/
 

@@ -1,4 +1,4 @@
-package com.ds.array;
+package com.algo.array;
 
 public class MergeSortedArray_88 {
 

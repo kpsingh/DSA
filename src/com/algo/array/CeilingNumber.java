@@ -1,4 +1,4 @@
-package com.algo.learning;
+package com.algo.array;
 // ref : https://www.youtube.com/watch?v=W9QJ8HaRvJQ&list=PPSV
 
 public class CeilingNumber {

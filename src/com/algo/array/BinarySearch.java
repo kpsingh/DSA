@@ -1,4 +1,4 @@
-package com.algo.learning;
+package com.algo.array;
 
 public class BinarySearch {
 

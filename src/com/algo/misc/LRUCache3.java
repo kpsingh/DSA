@@ -1,4 +1,4 @@
-package com.algo;
+package com.algo.misc;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
