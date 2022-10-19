@@ -30,6 +30,17 @@ public class TopKFrequentWords_692 {
 			map.merge(s, 1, (v1, v2) -> v1 + v2);
 
 		}
+		
+		/**
+		 * 
+		 * 
+		 * for(String w : words){
+            int c = map.getOrDefault(w,0);
+            c++;
+            map.put(w,c);
+        }
+		 */
+		 
 
 		return map.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).limit(k)
 				.map(e -> e.getKey()).collect(Collectors.toList());
