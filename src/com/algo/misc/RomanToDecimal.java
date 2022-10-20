@@ -1,18 +1,18 @@
 package com.algo.misc;
 
-public class RomanToDecimal {
+public class RomanToInteger {
 
 	public static void main(String[] args) {
 
 		String str = "XXIII"; // XXIII, MCMIV
 
-		int result = convertToDecimal(str);
+		int result = convertToInteger(str);
 
 		System.out.println("MCMIV --> " + result);
 
 	}
 
-	private static int convertToDecimal(String str) {
+	private static int convertToInteger(String str) {
 		int result = 0;
 
 		for (int i = 0; i < str.length(); i++) {
