@@ -103,6 +103,7 @@ public class Roman {
 				start++;
 
 			} else {
+				
 				key = list.get(start - 1).key;
 				result = result + list.get(start - 1).val;
 
