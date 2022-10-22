@@ -1,4 +1,4 @@
-package com.ds.linkedlist.questions;
+package com.ds.linkedlist;
 
 /**
  * 
