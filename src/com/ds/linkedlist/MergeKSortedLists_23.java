@@ -1,6 +1,6 @@
 package com.ds.linkedlist;
 
-public class MergeKSortedLists {
+public class MergeKSortedLists_23 {
 
 	public ListNode mergeKLists(ListNode[] arr) {
 		
