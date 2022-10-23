@@ -15,15 +15,15 @@ public class SetMismatch_645 {
 			map.merge(i, 1, (v1, v2) -> v1 + v2);
 		}
 
-		for (int i = 1; i <= nums.length; i++) {
+		for (int key = 1; key <= nums.length; key++) {
 
-			int val = map.getOrDefault(i, 0);
+			int val = map.getOrDefault(key, 0);
 
 			if (val == 2) {
-				ans[0] = i;
+				ans[0] = key;
 			}
 			if (val == 0) {
-				ans[1] = i;
+				ans[1] = key;
 			}
 		}
 		return ans;
