@@ -3,7 +3,7 @@ package com.algo.array;
 https://leetcode.com/problems/find-smallest-letter-greater-than-target/solution/
  */
 
-public class SmallestLetterGreaterThanTarget {
+public class SmallestLetterGreaterThanTarget_744 {
 
     public char nextGreatestLetter(char[] letters, char target) {
 
@@ -27,15 +27,5 @@ public class SmallestLetterGreaterThanTarget {
 
     }
     
-    
-    public static void main(String[] args) {
-    	
-    	if ('d' > 'c') {
-    		System.out.println("Greater : True");
-    	}
-    	else {
-    		System.out.println("Greater : False");
-    	}
-    }
     
 }
