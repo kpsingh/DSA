@@ -8,7 +8,7 @@ https://leetcode.com/problems/find-in-mountain-array/
 
 
 
-1. First try to find a Brute Force Solution then the optimised version.
+1. First try to find a Brute Force Solution then the optimize version.
  */
 
 public class PeakIndexInMountainArray_852 {
