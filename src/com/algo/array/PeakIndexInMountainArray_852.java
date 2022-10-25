@@ -11,7 +11,7 @@ https://leetcode.com/problems/find-in-mountain-array/
 1. First try to find a Brute Force Solution then the optimised version.
  */
 
-public class PeakIndexInMountainArray {
+public class PeakIndexInMountainArray_852 {
 
     public static void main(String[] args) {
 
