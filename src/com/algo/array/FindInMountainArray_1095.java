@@ -31,7 +31,7 @@ public class FindInMountainArray_1095 {
         if (asc != -1) {
             return asc;
         }
-        // if element not found in asc array then search in desc
+        // if element not found in asc array then search in desc part of the array
         return agnosticBS(arr, target, peak, arr.length - 1, false);
     }
 
