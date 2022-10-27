@@ -3,7 +3,7 @@ package com.algo.array;
 https://leetcode.com/problems/search-in-rotated-sorted-array/
  */
 
-public class SearchInRotatedSortedArray {
+public class SearchInRotatedSortedArray_33 {
 
     public static void main(String[] args) {
 
