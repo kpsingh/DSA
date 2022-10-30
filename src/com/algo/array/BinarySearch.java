@@ -1,5 +1,9 @@
 package com.algo.array;
 
+/*
+ * https://labuladong.gitbook.io/algo-en/iii.-algorithmic-thinking/detailedbinarysearch
+ */
+
 public class BinarySearch {
 
 	public static void main(String[] args) {
@@ -67,8 +71,8 @@ public class BinarySearch {
 
 		// check out of bounds
 		if (left >= arr.length || arr[left] != target)
-
 			return -1;
+		
 		return left;
 
 	}
