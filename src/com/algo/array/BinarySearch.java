@@ -16,8 +16,9 @@ public class BinarySearch {
 		System.out.println("Normal (default left bound) : " + binary_search_temmplate3(arr, 6));
 		System.out.println("Left Bound : " + left_bound_temmplate3(arr, 6));
 		System.out.println("Right Bound : " + right_bound_temmplate3(arr, 6));
-		// System.out.println(recursiveBinarySearch(arr, key, 0, arr.length - 1));
 
+		// template 4
+		System.out.println("Template 4 (default left bound)  : " + binary_search_temmplate4(arr, 6));
 	}
 
 	/**
@@ -38,7 +39,7 @@ public class BinarySearch {
 			if (arr[mid] < target) {
 				low = mid;
 			} else {
-				high = mid; // high has 2 responsibility  : " > " and " = "
+				high = mid; // high has 2 responsibility : " > " and " = "
 			}
 		}
 
@@ -119,27 +120,33 @@ public class BinarySearch {
 
 	public static int binary_search_temmplate4(int[] arr, int target) {
 
-		int low = 0;
-		int high = arr.length - 1;
+		int low = -1; // this will always points to wrong element (starting with invalid index)
+
+		int high = arr.length - 1; // assuming this will point to possibly correct search element if any
 
 		while (low + 1 < high) {
 
 			int mid = low + (high - low) / 2;
 
-			if (arr[mid] < target) {
-				low = mid;
+			if (isOK(arr, mid, target)) {
+				high = mid; // more responsibility to high
 			} else {
-				high = mid;
+				low = mid;
 			}
 		}
 
-		if (arr[low] != target && arr[high] != target) {
-			return -1;
-		}
-
-		return arr[low] == target ? low : high;
+		return arr[high] == target ? high : -1;
 
 	}
+
+	private static boolean isOK(int[] arr, int mid, int target) {
+		return arr[mid] >= target;
+	}
+
+	/**
+	 * 
+	 * Template - 4 - END
+	 */
 
 	/**
 	 * 
