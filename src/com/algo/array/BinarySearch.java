@@ -12,7 +12,6 @@ public class BinarySearch {
 	public static void main(String[] args) {
 
 		int arr[] = { 1, 3, 4, 6, 6, 6, 15, 17, 23, 34, 45, 56, 78, 89 };
-		int key = 6;
 
 		System.out.println("Normal (default left bound) : " + binary_search_temmplate3(arr, 6));
 		System.out.println("Left Bound : " + left_bound_temmplate3(arr, 6));
@@ -39,7 +38,7 @@ public class BinarySearch {
 			if (arr[mid] < target) {
 				low = mid;
 			} else {
-				high = mid; // high has 2 responsibility " > " and " = "
+				high = mid; // high has 2 responsibility  : " > " and " = "
 			}
 		}
 
@@ -63,12 +62,12 @@ public class BinarySearch {
 			if (arr[mid] < target) { // "<"
 				low = mid;
 			} else {
-				high = mid; // high has 2 responsibility " > " and " = "
+				high = mid; // high has 2 responsibility : " > " and " = "
 			}
 
 		}
 
-		if (arr[low] == target) { // check left 1st
+		if (arr[low] == target) { // 1st check the left
 			return low;
 		}
 		if (arr[high] == target) { // then right
@@ -96,11 +95,11 @@ public class BinarySearch {
 
 		}
 
-		if (arr[high] == target) { // right 1st
+		if (arr[high] == target) { // 1st check the right
 			return high;
 		}
 
-		if (arr[low] == target) { // left 2nd
+		if (arr[low] == target) { // then left
 			return low;
 		}
 
