@@ -11,19 +11,20 @@ public class BinarySearch {
 		int arr[] = { 1, 3, 4, 6, 6, 6, 15, 17, 23, 34, 45, 56, 78, 89 };
 		int key = 6;
 
-		System.out.println(binary_search_temmplate3(arr, 17));
-		System.out.println(left_bound_temmplate3(arr, 6));
-		System.out.println(right_bound_temmplate3(arr, 6));
+		System.out.println("Normal (default left bound) : " + binary_search_temmplate3(arr, 6));
+		System.out.println("Left Bound : " + left_bound_temmplate3(arr, 6));
+		System.out.println("Right Bound : " + right_bound_temmplate3(arr, 6));
 		// System.out.println(recursiveBinarySearch(arr, key, 0, arr.length - 1));
 
 	}
 
 	/**
 	 * 
-	 * Template - 3 - END
+	 * Template - 3 - START
 	 */
 
 	public static int binary_search_temmplate3(int[] arr, int target) {
+		// default it is left bound because of Integer division.
 
 		int low = 0;
 		int high = arr.length - 1;
@@ -56,17 +57,18 @@ public class BinarySearch {
 
 			int mid = low + (high - low) / 2;
 
-			if (arr[mid] < target) {
+			if (arr[mid] < target) { // "<"
 				low = mid;
 			} else {
 				high = mid;
 			}
+
 		}
 
-		if (arr[low] == target) {
+		if (arr[low] == target) { // check left 1st
 			return low;
 		}
-		if (arr[high] == target) {
+		if (arr[high] == target) { // then right
 			return high;
 		}
 
@@ -83,18 +85,19 @@ public class BinarySearch {
 
 			int mid = low + (high - low) / 2;
 
-			if (arr[mid] < target) {
+			if (arr[mid] <= target) { // "<="
 				low = mid;
 			} else {
 				high = mid;
 			}
+
 		}
 
-		if (arr[high] == target) {
+		if (arr[high] == target) { // right 1st
 			return high;
 		}
 
-		if (arr[low] == target) {
+		if (arr[low] == target) { // left 2nd
 			return low;
 		}
 
