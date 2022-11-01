@@ -1,6 +1,9 @@
 package com.algo.array;
 
 /*
+ * 
+ * https://www.youtube.com/watch?v=Do95Apr9Ldc
+ * 
  * https://labuladong.gitbook.io/algo-en/iii.-algorithmic-thinking/detailedbinarysearch
  */
 
