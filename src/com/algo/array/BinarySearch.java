@@ -39,7 +39,7 @@ public class BinarySearch {
 			if (arr[mid] < target) {
 				low = mid;
 			} else {
-				high = mid;
+				high = mid; // high has 2 responsibility " > " and " = "
 			}
 		}
 
@@ -63,7 +63,7 @@ public class BinarySearch {
 			if (arr[mid] < target) { // "<"
 				low = mid;
 			} else {
-				high = mid;
+				high = mid; // high has 2 responsibility " > " and " = "
 			}
 
 		}
@@ -91,7 +91,7 @@ public class BinarySearch {
 			if (arr[mid] <= target) { // "<="
 				low = mid;
 			} else {
-				high = mid;
+				high = mid; // // high has 1 responsibility " > "
 			}
 
 		}
