@@ -12,13 +12,15 @@ public class BinarySearch {
 		int key = 6;
 
 		System.out.println(binary_search_temmplate3(arr, 17));
+		System.out.println(left_bound_temmplate3(arr, 6));
+		System.out.println(right_bound_temmplate3(arr, 6));
 		// System.out.println(recursiveBinarySearch(arr, key, 0, arr.length - 1));
 
 	}
 
 	/**
 	 * 
-	 * Template - 3
+	 * Template - 3 - END
 	 */
 
 	public static int binary_search_temmplate3(int[] arr, int target) {
@@ -45,9 +47,69 @@ public class BinarySearch {
 
 	}
 
+	public static int left_bound_temmplate3(int[] arr, int target) {
+
+		int low = 0;
+		int high = arr.length - 1;
+
+		while (low + 1 < high) {
+
+			int mid = low + (high - low) / 2;
+
+			if (arr[mid] < target) {
+				low = mid;
+			} else {
+				high = mid;
+			}
+		}
+
+		if (arr[low] == target) {
+			return low;
+		}
+		if (arr[high] == target) {
+			return high;
+		}
+
+		return -1;
+
+	}
+
+	public static int right_bound_temmplate3(int[] arr, int target) {
+
+		int low = 0;
+		int high = arr.length - 1;
+
+		while (low + 1 < high) {
+
+			int mid = low + (high - low) / 2;
+
+			if (arr[mid] < target) {
+				low = mid;
+			} else {
+				high = mid;
+			}
+		}
+
+		if (arr[high] == target) {
+			return high;
+		}
+
+		if (arr[low] == target) {
+			return low;
+		}
+
+		return -1;
+
+	}
+
 	/**
 	 * 
-	 * Template - 4
+	 * Template - 3 - END
+	 */
+
+	/**
+	 * 
+	 * Template - 4 - Start
 	 */
 
 	public static int binary_search_temmplate4(int[] arr, int target) {
@@ -73,6 +135,11 @@ public class BinarySearch {
 		return arr[low] == target ? low : high;
 
 	}
+
+	/**
+	 * 
+	 * Template - General
+	 */
 
 	public static int binary_search(int[] arr, int target) {
 
