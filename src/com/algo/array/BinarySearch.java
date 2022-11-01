@@ -11,8 +11,66 @@ public class BinarySearch {
 		int arr[] = { 1, 3, 4, 6, 6, 6, 15, 17, 23, 34, 45, 56, 78, 89 };
 		int key = 6;
 
-		System.out.println(left_bound(arr, key));
+		System.out.println(binary_search_temmplate3(arr, 17));
 		// System.out.println(recursiveBinarySearch(arr, key, 0, arr.length - 1));
+
+	}
+
+	/**
+	 * 
+	 * Template - 3
+	 */
+
+	public static int binary_search_temmplate3(int[] arr, int target) {
+
+		int low = 0;
+		int high = arr.length - 1;
+
+		while (low + 1 < high) {
+
+			int mid = low + (high - low) / 2;
+
+			if (arr[mid] < target) {
+				low = mid;
+			} else {
+				high = mid;
+			}
+		}
+
+		if (arr[low] != target && arr[high] != target) {
+			return -1;
+		}
+
+		return arr[low] == target ? low : high;
+
+	}
+
+	/**
+	 * 
+	 * Template - 4
+	 */
+
+	public static int binary_search_temmplate4(int[] arr, int target) {
+
+		int low = 0;
+		int high = arr.length - 1;
+
+		while (low + 1 < high) {
+
+			int mid = low + (high - low) / 2;
+
+			if (arr[mid] < target) {
+				low = mid;
+			} else {
+				high = mid;
+			}
+		}
+
+		if (arr[low] != target && arr[high] != target) {
+			return -1;
+		}
+
+		return arr[low] == target ? low : high;
 
 	}
 
@@ -72,7 +130,7 @@ public class BinarySearch {
 		// check out of bounds
 		if (left >= arr.length || arr[left] != target)
 			return -1;
-		
+
 		return left;
 
 	}
