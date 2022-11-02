@@ -120,27 +120,26 @@ public class BinarySearch {
 
 	public static int binary_search_temmplate4(int[] arr, int target) {
 
-		int low = -1; // this will always points to wrong element (starting with invalid index)
-
-		int high = arr.length - 1; // assuming this will point to possibly correct search element if any
+		int low = 0; // assuming this will point to possibly correct search element if any
+		int high = arr.length; // this will always points to false element (starting with invalid index)
 
 		while (low + 1 < high) {
 
 			int mid = low + (high - low) / 2;
 
 			if (isOK(arr, mid, target)) {
-				high = mid; // more responsibility to high
+				low = mid; // more responsibility to low
 			} else {
-				low = mid;
+				high = mid;
 			}
 		}
 
-		return arr[high] == target ? high : -1;
+		return arr[low] == target ? low : -1;
 
 	}
 
 	private static boolean isOK(int[] arr, int mid, int target) {
-		return arr[mid] >= target;
+		return arr[mid] <= target;
 	}
 
 	/**
