@@ -13,17 +13,18 @@ public class SearchIn2DMatrix_74 {
 
 	public static boolean searchMatrix(int[][] arr, int target) {
 
-		int n = arr.length; // no of rows - 3
-		int m = arr[0].length; // no of colums - 4
+		int noOfRow = arr.length; // no of rows - 3
+		int noOfCol = arr[0].length; // no of colums - 4
 
 		int low = 0;
-		int high = n * m;
+		int high = noOfRow * noOfCol;
 
 		while (low + 1 < high) {
+
 			int mid = low + (high - low) / 2;
-			
-			int row = mid / m;
-			int col = mid % m;
+
+			int row = mid / noOfCol;
+			int col = mid % noOfCol;
 
 			if (ok(arr, row, col, target)) {
 				low = mid;
@@ -33,7 +34,7 @@ public class SearchIn2DMatrix_74 {
 
 		}
 
-		return arr[low / m][low % m] == target ? true : false;
+		return arr[low / noOfCol][low % noOfCol] == target ? true : false;
 
 	}
 
