@@ -16,8 +16,8 @@ public class SearchIn2DMatrix_74 {
 		int noOfRow = arr.length; // no of rows - 3
 		int noOfCol = arr[0].length; // no of colums - 4
 
-		int low = 0;
-		int high = noOfRow * noOfCol;
+		int low = 0; // valid
+		int high = noOfRow * noOfCol; // pointing to non valid answer
 
 		while (low + 1 < high) {
 

@@ -12,9 +12,11 @@ public class FindMinimumInRotatedSortedArray_153 {
 			int mid = low + (high - low) / 2;
 
 			if (isOkay(arr, mid)) {
+
 				low = mid;
 
 			} else {
+
 				high = mid;
 			}
 
