@@ -6,7 +6,7 @@ public class SmallestDivisorGivenThreshold_1283 {
 		int[] arr = { 1, 2, 5, 9 };
 		int threshold = 6;
 
-		//System.out.println(Math.ceil(4 / 3));
+		// System.out.println(Math.ceil(4 / 3));
 
 		int devisor = smallestDivisor(arr, threshold);
 		System.out.println(devisor);
@@ -14,21 +14,36 @@ public class SmallestDivisorGivenThreshold_1283 {
 	}
 
 	public static int smallestDivisor(int[] arr, int threshold) {
+
 		int low = 1;
-		int divisor = 1;
-		while (true) {
-			int result = 0;
-			for (int a : arr) {
-				result += (a + low - 1) / low;
-			}
-			if (result <= threshold) {
-				divisor = low;
-				break;
+		int high = Integer.MAX_VALUE;
+
+		while (low + 1 < high) {
+
+			int mid = low + (high - low) / 2;
+
+			if (ok(arr, mid, threshold)) {
+
+				low = mid;
+
 			} else {
-				low++;
+
+				high = mid;
 			}
 		}
-		return divisor;
+		return high;
+	}
+
+	private static boolean ok(int[] arr, int mid, int threshold) {
+
+		int result = 0;
+
+		for (int a : arr) {
+
+			result += (a + mid - 1) / mid;
+		}
+
+		return result > threshold;
 	}
 
 }
