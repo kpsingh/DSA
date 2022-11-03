@@ -16,7 +16,7 @@ public class SmallestDivisorGivenThreshold_1283 {
 	public static int smallestDivisor(int[] arr, int threshold) {
 
 		int low = 1;
-		int high = Integer.MAX_VALUE;
+		int high = (int) 10e6; // 10 ^ 6
 
 		while (low + 1 < high) {
 
