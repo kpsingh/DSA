@@ -17,10 +17,6 @@ public class SortArrray {
 		}
 
 		sort(arr, size--);
-		
-		
-		
-		
 
 	}
 
