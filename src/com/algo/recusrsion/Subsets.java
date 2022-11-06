@@ -27,11 +27,11 @@ public class Subsets {
 
 		String output_1 = output;
 		String output_2 = output + input.get(0);
-		List<String> newInputinput = new ArrayList<>(input);
-		newInputinput.remove(0);
+		List<String> newInput = new ArrayList<>(input);
+		newInput.remove(0);
 
-		printSubsets(newInputinput, output_1);
-		printSubsets(newInputinput, output_2);
+		printSubsets(newInput, output_1);
+		printSubsets(newInput, output_2);
 
 	}
 
