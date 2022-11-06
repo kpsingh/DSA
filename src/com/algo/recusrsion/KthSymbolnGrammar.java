@@ -14,38 +14,20 @@ public class KthSymbolnGrammar {
 
 	public static int kthGrammar(int n, int k) {
 
-		StringBuilder sb = generate(n);
-
-		String s = new String(sb);
-
-		int result = Character.getNumericValue(s.charAt(k - 1));
-
-		System.out.println(s);
-
-		return result;
-
-	}
-
-	private static StringBuilder generate(int n) {
-
-		if (n == 1) {
-			StringBuilder ans = new StringBuilder("0");
-			return ans;
+		if (n == 0 && k == 0) {
+			return 0;
 		}
 
-		StringBuilder s = generate(n - 1);
+		int mid = (int) (Math.pow(2, n - 1) / 2);
 
-		StringBuilder ans = new StringBuilder();
+		if (k <= mid) {
+			return kthGrammar(n - 1, k);
+		} else {
 
-		for (int i = 0; i < s.length(); i++) {
-			if (s.charAt(i) == '0') {
-				ans.append("01");
-			} else {
-				ans.append("10");
-			}
+			int result = kthGrammar(n - 1, k - mid);
+
+			return result == 1 ? 0 : 1;
 		}
-
-		return ans;
 
 	}
 
