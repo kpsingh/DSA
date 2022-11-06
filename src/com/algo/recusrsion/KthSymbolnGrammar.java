@@ -18,7 +18,7 @@ public class KthSymbolnGrammar {
 			return 0;
 		}
 
-		int mid = (int) (Math.pow(2, n - 1) / 2);
+		int mid = (int) (Math.pow(2, n - 1)) / 2;
 
 		if (k <= mid) {
 			return kthGrammar(n - 1, k);
