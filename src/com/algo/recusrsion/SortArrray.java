@@ -20,42 +20,41 @@ public class SortArrray {
 		}
 		System.out.println();
 
-		List<Integer> sort = sort(list);
+		sort(list);
 
-		for (int a : sort) {
+		for (int a : list) {
 			System.out.print(a + " ");
 		}
 		System.out.println();
 
 	}
 
-	private static List<Integer> sort(List<Integer> list) {
+	private static void sort(List<Integer> list) {
 		if (list.size() == 1) {
-			return list;
+			return;
 		}
 
 		int temp = list.get(list.size() - 1);
-
-		List<Integer> subList = list.subList(0, list.size() - 1);
-
-		subList = sort(subList);
-
-		return merge(subList, temp);
+		list.remove(list.size() - 1);
+		sort(list);
+		merge(list, temp);
 
 	}
 
-	private static List<Integer> merge(List<Integer> list, int target) {
+	private static void merge(List<Integer> list, int target) {
 
 		if (list.size() == 0 || list.get(list.size() - 1) <= target) {
 			list.add(target);
-			return list;
+			return;
 		}
 
 		int temp = list.get(list.size() - 1);
+		list.remove(list.size() - 1);
 
-		List<Integer> subLis = merge(list.subList(0, list.size() - 1), target);
-		subLis.add(temp);
-		return subLis;
+		merge(list, target);
+
+		list.add(temp);
+
 	}
 
 }
