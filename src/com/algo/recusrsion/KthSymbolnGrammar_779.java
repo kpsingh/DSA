@@ -3,7 +3,7 @@ package com.algo.recusrsion;
 /*
  * https://leetcode.com/problems/k-th-symbol-in-grammar/
  */
-public class KthSymbolnGrammar {
+public class KthSymbolnGrammar_779 {
 
 	public static void main(String[] args) {
 
