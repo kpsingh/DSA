@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Subsets_IO {
 
+	static List<String> subsets = new ArrayList<>();
+
 	public static void main(String[] args) {
 
 		List<String> input = new ArrayList<>();
@@ -16,12 +18,16 @@ public class Subsets_IO {
 
 		printSubsets(input, output);
 
+		for (String s : subsets) {
+			System.out.println(s);
+		}
+
 	}
 
 	private static void printSubsets(List<String> input, String output) {
 
 		if (input.size() == 0) {
-			System.out.print(output + ",");
+			subsets.add(output);
 			return;
 		}
 
