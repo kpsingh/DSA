@@ -2,6 +2,10 @@ package com.algo.recusrsion;
 
 import java.util.Stack;
 
+/*
+ * Induction - Base - Hypothesis
+ */
+
 public class ReverseStack_IBH {
 
 	public static void main(String[] args) {
@@ -15,7 +19,7 @@ public class ReverseStack_IBH {
 		for (int a : stack) {
 			System.out.print(a + " ");
 		}
-		
+
 		System.out.println();
 
 		reverse(stack);

@@ -1,6 +1,9 @@
 package com.algo.recusrsion;
 
 import java.util.Stack;
+/*
+ * Induction - Base - Hypothesis
+ */
 
 public class SortStack_IBH {
 
