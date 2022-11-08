@@ -1,5 +1,10 @@
 package com.algo.recusrsion;
 /*
+ * Print the n digit binary number in such a way that number of 1's are >= 0's.
+ * 
+ * In order to make the decision tree, if both are same then the only way to start is choose the 1
+ * and then you can have option to chose either of zero or one.
+ * 
  * 
  */
 
