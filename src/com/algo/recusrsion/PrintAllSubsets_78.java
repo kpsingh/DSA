@@ -29,6 +29,7 @@ public class PrintAllSubsets_78 {
 		ArrayList<Integer> output = new ArrayList<>();
 
 		subsets(input, output);
+		
 		return subsets;
 
 	}
