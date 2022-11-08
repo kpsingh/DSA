@@ -6,7 +6,7 @@ package com.algo.recusrsion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PermutationWithCaseChange {
+public class PermutationWithCaseChange_IO {
 
 	public static void main(String[] args) {
 		List<String> input = new ArrayList<>();

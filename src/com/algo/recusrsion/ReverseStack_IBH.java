@@ -2,7 +2,7 @@ package com.algo.recusrsion;
 
 import java.util.Stack;
 
-public class ReverseStack {
+public class ReverseStack_IBH {
 
 	public static void main(String[] args) {
 		Stack<Integer> stack = new Stack<>();

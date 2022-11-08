@@ -3,7 +3,7 @@ package com.algo.recusrsion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SortArrray {
+public class SortArrray_IBH {
 
 	public static void main(String[] args) {
 

@@ -2,7 +2,7 @@ package com.algo.recusrsion;
 
 import java.util.Stack;
 
-public class SortStack {
+public class SortStack_IBH {
 
 	public static void main(String[] args) {
 

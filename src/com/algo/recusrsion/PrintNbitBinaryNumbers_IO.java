@@ -3,7 +3,7 @@ package com.algo.recusrsion;
  * 
  */
 
-public class PrintNbitBinaryNumbers {
+public class PrintNbitBinaryNumbers_IO {
 
 	public static void main(String[] args) {
 		int n = 4;

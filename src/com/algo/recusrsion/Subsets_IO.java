@@ -3,7 +3,7 @@ package com.algo.recusrsion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Subsets {
+public class Subsets_IO {
 
 	public static void main(String[] args) {
 

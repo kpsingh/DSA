@@ -7,7 +7,7 @@ import java.util.List;
  * https://www.youtube.com/watch?v=1cspuQ6qHW0&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=14
  */
 
-public class PermutationWithSpaces {
+public class PermutationWithSpaces_IO {
 
 	public static void main(String[] args) {
 
