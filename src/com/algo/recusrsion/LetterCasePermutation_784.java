@@ -9,7 +9,7 @@ public class LetterCasePermutation_784 {
 
 	public static void main(String[] args) {
 
-		String str = "a1b2"; // Output: ["a1b2","a1B2","A1b2","A1B2"]
+		String str = "C"; // Output: ["a1b2","a1B2","A1b2","A1B2"]
 
 		letterCasePermutation(str);
 
@@ -35,11 +35,21 @@ public class LetterCasePermutation_784 {
 			return;
 		}
 
-		String out1 = out;
-		String out2 = out + input.substring(0, 1);
+		String s = input.substring(0, 1);
 
-		letterCasePermutation(input.substring(1), out1);
-		letterCasePermutation(input.substring(1), out2);
+		String out1 = out;
+		String out2 = out;
+
+		if (s.equals(s.toUpperCase()) && s.equals(s.toLowerCase())) {
+			out1 = out1 + s;
+			letterCasePermutation(input.substring(1), out1);
+
+		} else {
+			out1 = out1 + s.toUpperCase();
+			out2 = out2 + s.toLowerCase();
+			letterCasePermutation(input.substring(1), out1);
+			letterCasePermutation(input.substring(1), out2);
+		}
 
 	}
 
