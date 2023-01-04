@@ -1,4 +1,4 @@
-package com.algo.array;
+package com.algo.binarySearch;
 
 /*
 https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/

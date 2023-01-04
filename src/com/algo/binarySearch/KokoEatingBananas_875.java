@@ -1,4 +1,4 @@
-package com.algo.array;
+package com.algo.binarySearch;
 
 public class KokoEatingBananas_875 {
 

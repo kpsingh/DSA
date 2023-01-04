@@ -1,4 +1,4 @@
-package com.algo.array;
+package com.algo.binarySearch;
 
 public class RotateArray_189 {
 

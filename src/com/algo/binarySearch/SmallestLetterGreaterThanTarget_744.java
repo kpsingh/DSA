@@ -1,4 +1,4 @@
-package com.algo.array;
+package com.algo.binarySearch;
 /*
 https://leetcode.com/problems/find-smallest-letter-greater-than-target/solution/
  */

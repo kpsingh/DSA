@@ -1,4 +1,4 @@
-package com.algo.array;
+package com.algo.binarySearch;
 
 import java.util.ArrayList;
 import java.util.List;

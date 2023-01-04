@@ -1,4 +1,4 @@
-package com.algo.array;
+package com.algo.binarySearch;
 /*
 https://leetcode.com/problems/peak-index-in-a-mountain-array/
 

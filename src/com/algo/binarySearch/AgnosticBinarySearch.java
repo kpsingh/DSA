@@ -1,4 +1,4 @@
-package com.algo.array;
+package com.algo.binarySearch;
 
 /*
 in this case we don't know the sorting order i.e either ascending or descending.
