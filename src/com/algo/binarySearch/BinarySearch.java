@@ -1,5 +1,8 @@
 package com.algo.binarySearch;
 
+import javax.swing.text.html.HTML.Tag;
+import javax.swing.text.html.HTMLDocument.HTMLReader.HiddenAction;
+
 /*
  * 
  * https://www.youtube.com/watch?v=Do95Apr9Ldc
@@ -19,6 +22,9 @@ public class BinarySearch {
 
 		// template 4
 		System.out.println("Template 4 (default left bound)  : " + binary_search_temmplate4(arr, 6));
+		
+		// template 2
+		System.out.println("Template 2 (default left bound)  : " + binary_search_temmplate2(arr, 6));
 	}
 
 	/**
@@ -257,6 +263,29 @@ public class BinarySearch {
 				return recursiveBinarySearch(arr, key, start, mid - 1);
 		}
 		return -1;
+	}
+
+	/**
+	 * 
+	 * Template - 2
+	 */
+	public static int binary_search_temmplate2(int[] arr, int target) {
+
+		int low = 0;
+		int high = arr.length - 1;
+
+		while (low < high) {
+			int mid = low + (high - low) / 2;
+
+			if (arr[mid] < target) {
+				low = mid + 1;
+			} else {
+				high = mid;
+			}
+		}
+
+		return arr[low] == target ? low : -1;
+
 	}
 
 }
