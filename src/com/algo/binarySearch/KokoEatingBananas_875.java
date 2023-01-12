@@ -2,12 +2,14 @@ package com.algo.binarySearch;
 
 public class KokoEatingBananas_875 {
 
-	public int minEatingSpeed(int[] arr, int h) {
+	public int minEatingSpeed(int[] piles, int h) {
 		int low = 0;
 		int high = Integer.MAX_VALUE;
+
 		while (low + 1 < high) {
 			int mid = low + (high - low) / 2;
-			if (okay(arr, mid, h)) {
+
+			if (ok(piles, mid, h)) {
 				high = mid;
 			} else {
 				low = mid;
@@ -16,13 +18,18 @@ public class KokoEatingBananas_875 {
 		return high;
 	}
 
-	private boolean okay(int[] arr, int mid, int hours) {
-		int result = 0;
-		for (int a : arr) {
-			result += (a + mid - 1) / mid;
+	private boolean ok(int[] arr, int mid, int hours) {
+		int totalHours = 0; // IMP
+
+		if (mid == 0) { // IMP
+			return false;
 		}
 
-		return result <= hours;
+		for (int a : arr) {
+			totalHours = totalHours + (a + mid - 1) / mid;
+		}
+
+		return totalHours <= hours;
 	}
 
 }
