@@ -19,7 +19,7 @@ public class KokoEatingBananas_875 {
 	}
 
 	private boolean ok(int[] arr, int mid, int hours) {
-		int totalHours = 0; // IMP
+		long totalHours = 0; // IMP
 
 		if (mid == 0) { // Good to have this check
 			return false;
