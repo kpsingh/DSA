@@ -8,12 +8,43 @@ public class MaximumSumSubarrayOfSizeK {
 	// brute force approach
 
 	public static void main(String[] args) {
-		int[] arr = { 4, 3, 2, 6, 7, 8, 9, 5, 4 };
+		int[] arr = { 4, 3, 2, 6, 7, 8, 9, 5, 4, 20, 20 };
 		int w = 3; // window size
 
 		int maxSum = getMaxSum(arr, w);
 		System.out.println(maxSum);
 		System.out.println("getMaxSum_2 : " + getMaxSum_2(arr, w));
+
+		System.out.println("getMaxSum_3 : " + getMaxSum_3(arr, w));
+
+	}
+
+	// approach 3
+	private static int getMaxSum_3(int[] arr, int w) {
+
+		int i = 0;
+		int j = 0;
+		int sum = 0;
+		int max = 0;
+
+		while (j < arr.length) {
+
+			sum += arr[j];
+
+			if (j - i == w) {
+				
+				sum = sum - arr[i];
+				
+				max = Math.max(max, sum);
+				i++;
+				j++;
+
+			} else {
+				j++;
+			}
+		}
+
+		return max;
 
 	}
 
