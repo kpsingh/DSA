@@ -13,9 +13,34 @@ public class MaximumSumSubarrayOfSizeK {
 
 		int maxSum = getMaxSum(arr, w);
 		System.out.println(maxSum);
+		System.out.println("getMaxSum_2 : " + getMaxSum_2(arr, w));
 
 	}
 
+	// approach 2
+	private static int getMaxSum_2(int[] arr, int w) {
+
+		if (arr.length < w) {
+			return -1; // not possible
+		}
+
+		int result = 0;
+		int i = 0, j = 0;
+
+		for (; j < w; j++) {
+			result += arr[j];
+		}
+
+		while (j < arr.length) {
+			result = Math.max(result, result + arr[j] - arr[i]);
+			i++;
+			j++;
+		}
+
+		return result;
+	}
+
+	// approach 1
 	private static int getMaxSum(int[] arr, int w) {
 		if (arr.length < w) {
 			return -1; // not possible
@@ -43,11 +68,11 @@ public class MaximumSumSubarrayOfSizeK {
 		System.out.println(list);
 
 		for (List<Integer> l : list) {
-			
+
 			int sum = 0;
-			
+
 			for (int a : l) {
-				
+
 				sum = sum + a;
 			}
 
