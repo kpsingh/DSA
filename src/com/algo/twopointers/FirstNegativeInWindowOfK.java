@@ -14,26 +14,38 @@ public class FirstNegativeInWindowOfK {
 
 	private static void printFirstNegative(int[] arr, int w) {
 
+		int i = 0;
+		int j = 0;
 		List<Integer> list = new ArrayList<>();
 
-		int i = 0;
+		while (j < arr.length) {
 
-		while (i < arr.length) {
-
-			if (list.size() < w) {
-				list.add(arr[i]);
-				i++;
-
-			} else {
-				for (int a : list) {
-					if (a < 0) {
-						System.out.println(a);
-						break;
-					}
+			if (j - i + 1 < w) { // yet to be reach window size
+				if (arr[j] < 0) {
+					list.add(arr[j]);
 				}
-				list.remove(0);
-				list.add(arr[i]);
+				j++;
+
+			} else { // reached window size
+
+				// add the element if -ve
+				if (arr[j] < 0) {
+					list.add(arr[j]);
+				}
+
+				// if list is empty then print the zero
+				if (list.size() == 0) {
+					System.out.println(0);
+				} else { // otherwise print the very first element
+					System.out.println(list.get(0));
+
+				}
+
+				if (arr[i] < 0) {
+					list.remove(0);
+				}
 				i++;
+				j++;
 
 			}
 		}
