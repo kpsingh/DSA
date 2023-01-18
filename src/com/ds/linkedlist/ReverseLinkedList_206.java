@@ -10,7 +10,7 @@ import java.util.Stack;
 public class ReverseLinkedList_206 {
 
 	public ListNode reverseListIterative(ListNode head) {
-		
+
 		if (null == head || head.next == null)
 			return head;
 
@@ -28,6 +28,8 @@ public class ReverseLinkedList_206 {
 
 	}
 
+	// Reverse LinkList Recursively
+
 	ListNode head = null;
 	ListNode tail = null;
 
@@ -42,10 +44,10 @@ public class ReverseLinkedList_206 {
 	}
 
 	private void revese(ListNode node) {
-		
+
 		if (node.next == null) {
 			/**
-			 * this mean we have reached to the last element of the list. in reverse this
+			 * this mean we have reached to the last element of the list. In reverse this
 			 * last node going to be head.
 			 * 
 			 * We'll keep moving the tail node making the earlier element as the next for
