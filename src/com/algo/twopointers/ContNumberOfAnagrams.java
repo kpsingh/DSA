@@ -53,9 +53,14 @@ public class ContNumberOfAnagrams {
 			} else {
 				// now we have the window size
 
-				if (map.getOrDefault(key, -1) > -1) {
+				if (map.containsKey(key)) {
 					// that mean the key already exit in the map and we can reduce it ., if it is
 					// zero that mean not present then do nothing as it not belong to anagram String
+
+					if (map.get(key) == 0) {
+						map.put(key, map.get(key) - 1);
+						count++;
+					}
 
 					map.put(key, map.get(key) - 1);
 
@@ -70,11 +75,10 @@ public class ContNumberOfAnagrams {
 
 				if (map.containsKey(str.charAt(i))) {
 
-					if (map.get(str.charAt(i)) > 0) {
-						map.put(str.charAt(i), map.get(str.charAt(i)) + 1);
-					} else {
-						map.put(str.charAt(i), map.get(str.charAt(i)) + 1);
-						count++;
+					map.put(str.charAt(i), map.get(str.charAt(i)) + 1);
+
+					if (map.get(str.charAt(i)) == 0) {
+						count--;
 					}
 
 				}
