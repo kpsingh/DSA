@@ -7,7 +7,7 @@ public class ContNumberOfAnagrams {
 
 	public static void main(String[] args) {
 
-		String s = "cbaebabacd";
+		String s = "cbaebacb";
 		String p = "abc";
 
 		int countOfAnagrams = getCount(s, p);
@@ -37,9 +37,14 @@ public class ContNumberOfAnagrams {
 			if (j - i + 1 < ptr.length()) {
 				// no window size
 
-				if (map.getOrDefault(key, -1) > -1) {
+				if (map.containsKey(key)) {
 					// that mean the key already exit in the map and we can reduce it ., if it is
 					// zero that mean not present then do nothing as it not belong to anagram String
+
+					if (map.get(key) == 0) {
+						map.put(key, map.get(key) - 1);
+						count++;
+					}
 
 					map.put(key, map.get(key) - 1);
 
