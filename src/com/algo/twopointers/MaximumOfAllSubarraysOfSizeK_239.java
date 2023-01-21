@@ -43,7 +43,8 @@ public class MaximumOfAllSubarraysOfSizeK_239 {
 			if (j - i + 1 < k) {
 				// window size < k
 
-				while (deque.size() > 0 && deque.peekLast() <= arr[j]) {
+				while (deque.size() > 0 && deque.peekLast() < arr[j]) { // deque.peekLast() < arr[j] :: "<" or "<=" very
+																		// IMP
 					deque.pollLast();
 				}
 				deque.offerLast(arr[j]);
@@ -53,7 +54,8 @@ public class MaximumOfAllSubarraysOfSizeK_239 {
 
 				// window size == k
 
-				while (deque.size() > 0 && deque.peekLast() <= arr[j]) {
+				while (deque.size() > 0 && deque.peekLast() < arr[j]) { // deque.peekLast() < arr[j] :: "<" or "<=" very
+																		// IMP
 					deque.pollLast();
 				}
 				deque.offerLast(arr[j]);
