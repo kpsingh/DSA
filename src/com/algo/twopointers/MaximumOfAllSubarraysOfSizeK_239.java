@@ -11,7 +11,7 @@ import java.util.Queue;
 public class MaximumOfAllSubarraysOfSizeK_239 {
 
 	public static void main(String[] args) {
-		// int[] arr = { 10, 2, 5, 8, 9, 3, 6, 11 };
+		// int[] arr = { 10, 2, 5, 8, 9, 3, 6};
 		// int k = 3;
 
 		// int[] arr = { 1 };
@@ -29,56 +29,54 @@ public class MaximumOfAllSubarraysOfSizeK_239 {
 
 	private static int[] getMaxFromSubArrays(int[] arr, int k) {
 
-		List<Integer> result = new ArrayList<>();
+		if (arr.length < k || arr.length == 0)
+			return new int[0];
 
-		Deque<Integer> deq = new ArrayDeque<>();
+		ArrayList<Integer> result = new ArrayList<>();
+		Deque<Integer> deque = new ArrayDeque<>();
+
 		int i = 0;
 		int j = 0;
 
 		while (j < arr.length) {
 
 			if (j - i + 1 < k) {
+				// window size < k
 
-				while (deq.size() > 0 && deq.peek() < arr[j]) {
-					deq.poll();
+				while (deque.size() > 0 && deque.peekLast() <= arr[j]) {
+					deque.pollLast();
 				}
-
-				deq.offer(arr[j]);
+				deque.offerLast(arr[j]);
 				j++;
 
 			} else {
-				// reached at window size
 
-				while (deq.size() > 0 && deq.peek() < arr[j]) {
-					deq.poll();
+				// window size == k
+
+				while (deque.size() > 0 && deque.peekLast() <= arr[j]) {
+					deque.pollLast();
 				}
+				deque.offerLast(arr[j]);
 
-				deq.offer(arr[j]);
-				result.add(deq.peek());
+				result.add(deque.peekFirst());
 
-				if (deq.peek() == arr[i]) {
-					deq.poll();
-
-					while (deq.size() > 0 && deq.peek() < arr[j]) {
-						deq.poll();
-					}
+				if (arr[i] == deque.peekFirst()) {
+					deque.pollFirst();
 				}
 
 				i++;
 				j++;
 
 			}
-
 		}
 
 		int[] ans = new int[result.size()];
 
-		for (int l = 0; l < ans.length; l++) {
-			ans[l] = result.get(l);
+		for (i = 0; i < ans.length; i++) {
+			ans[i] = result.get(i);
 		}
 
 		return ans;
-
 	}
 
 }
