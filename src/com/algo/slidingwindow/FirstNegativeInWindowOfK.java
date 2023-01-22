@@ -1,4 +1,4 @@
-package com.algo.twopointers;
+package com.algo.slidingwindow;
 
 import java.util.ArrayList;
 import java.util.List;
