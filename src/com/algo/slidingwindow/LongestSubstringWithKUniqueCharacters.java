@@ -25,7 +25,7 @@ public class LongestSubstringWithKUniqueCharacters {
 		int max = 0;
 		int i = 0;
 		int j = 0;
-		
+
 		Map<Character, Integer> map = new HashMap<>();
 
 		while (j < s.length()) {
@@ -48,7 +48,7 @@ public class LongestSubstringWithKUniqueCharacters {
 
 			} else if (map.size() > k) {
 
-				while (map.size() < k) {
+				while (map.size() > k) {
 
 					Character key2 = s.charAt(i);
 					map.put(key2, map.get(key2) - 1);
