@@ -10,6 +10,9 @@ public class LongestSubstringWithKUniqueCharacters {
 		String s = "aabacbebebebe";
 		int k = 3;
 
+		//String s = "aabbcc";
+		//int k = 1;
+
 		int result = getLengthOfMaxSubstringK(s, k);
 
 		System.out.println(result);
@@ -30,39 +33,22 @@ public class LongestSubstringWithKUniqueCharacters {
 
 		while (j < s.length()) {
 
-			Character key = s.charAt(j);
+			Character c = s.charAt(j);
+			map.put(c, map.getOrDefault(c, 0) + 1);
 
-			if (map.size() < k) {
-
-				map.put(key, map.getOrDefault(key, 0) + 1);
-
-				j++;
-
-			} else if (map.size() == k) {
-
-				max = Math.max(max, j - i + 1); // a potential answer
-
-				map.put(key, map.getOrDefault(key, 0) + 1);
-
-				j++;
-
-			} else if (map.size() > k) {
-
-				while (map.size() > k) {
-
-					Character key2 = s.charAt(i);
-					map.put(key2, map.get(key2) - 1);
-
-					if (map.get(key2) == 0) {
-						map.remove(key2);
-					}
-
-					i++;
-
-				}
-				j++;
-
+			if (map.size() == k) {
+				max = Math.max(max, j - i + 1);
 			}
+
+			while (map.size() > k) {
+				Character c1 = s.charAt(i);
+				map.put(c1, map.get(c1) - 1);
+				if (map.get(c1) == 0) {
+					map.remove(c1);
+				}
+				i++;
+			}	
+			j++;
 
 		}
 
