@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class MaximumOfAllSubarraysOfSizeK_239 {
+public class SlidingWindowMaximum_239 {
 
 	public static void main(String[] args) {
 		// int[] arr = { 10, 2, 5, 8, 9, 3, 6};
