@@ -3,6 +3,11 @@ package com.algo.slidingwindow;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+ * https://www.geeksforgeeks.org/find-the-longest-substring-with-k-unique-characters-in-a-given-string/
+ * 
+ */
+
 public class LongestSubstringWithKUniqueCharacters {
 
 	public static void main(String[] args) {
@@ -10,8 +15,8 @@ public class LongestSubstringWithKUniqueCharacters {
 		String s = "aabacbebebebe";
 		int k = 3;
 
-		//String s = "aabbcc";
-		//int k = 1;
+		// String s = "aabbcc";
+		// int k = 1;
 
 		int result = getLengthOfMaxSubstringK(s, k);
 
@@ -20,12 +25,7 @@ public class LongestSubstringWithKUniqueCharacters {
 
 	private static int getLengthOfMaxSubstringK(String s, int k) {
 
-		if (s.length() < k || k == 0) {
-			return 0;
-
-		}
-
-		int max = 0;
+		int max = -1;
 		int i = 0;
 		int j = 0;
 
@@ -47,7 +47,7 @@ public class LongestSubstringWithKUniqueCharacters {
 					map.remove(c1);
 				}
 				i++;
-			}	
+			}
 			j++;
 
 		}
