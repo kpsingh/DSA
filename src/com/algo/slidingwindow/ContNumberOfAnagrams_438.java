@@ -52,6 +52,8 @@ public class ContNumberOfAnagrams_438 {
 
 			if (j - i + 1 == ptr.length()) {
 
+				// potential answer can be found
+
 				if (count == 0) {
 					result.add(i);
 				}
