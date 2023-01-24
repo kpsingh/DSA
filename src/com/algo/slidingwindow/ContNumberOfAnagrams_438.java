@@ -1,7 +1,6 @@
 package com.algo.slidingwindow;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +17,7 @@ public class ContNumberOfAnagrams_438 {
 
 		List<Integer> countOfAnagrams = getCount(s, p);
 		System.out.println(countOfAnagrams);
+		
 	}
 
 	private static List<Integer> getCount(String str, String ptr) {
