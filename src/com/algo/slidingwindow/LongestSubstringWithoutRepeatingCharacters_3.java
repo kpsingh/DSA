@@ -1,11 +1,14 @@
 package com.algo.slidingwindow;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class LongestSubstringWithoutRepeatingCharacters_3 {
 	public static void main(String[] args) {
 		// String s = "abcabcbb";
 		// String s = "dvdf";
-		String s = " ";
-		//String s = "tmmzuxt";
+		// String s = " ";
+		String s = "tmmzuxt";
 
 		int result = lengthOfLongestSubstring(s);
 		System.out.println(result);
@@ -13,47 +16,39 @@ public class LongestSubstringWithoutRepeatingCharacters_3 {
 
 	public static int lengthOfLongestSubstring(String s) {
 
-		int[] chars = new int[128];
+		if (s.length() == 0 || s.length() == 1) {
+			return s.length();
+		}
 
-		int left = 0;
-		int right = 0;
-		int res = 0;
+		int ans = 0;
+		int i = 0;
+		int j = 0;
 
-		while (right < s.length()) {
+		Set<Character> set = new HashSet<>();
+		boolean added = false;
 
-			char r = s.charAt(right);
-			chars[r]++;
+		while (j < s.length()) {
 
-			while (chars[r] > 1) {
-				char l = s.charAt(left);
-				chars[l]--;
-				left++;
+			Character c = s.charAt(j);
+			added = set.add(c);
+
+			if (!added) {
+
+				while (set.contains(c)) {
+					set.remove(s.charAt(i));
+					i++;
+				}
+				set.add(c);
+
 			}
 
-			res = Math.max(res, right - left + 1);
+			ans = Math.max(ans, j - i + 1);
+			j++;
 
-			right++;
 		}
-		return res;
+
+		return ans;
+
 	}
 
 }
-
-/*
- * public static int lengthOfLongestSubstring(String s) {
- * 
- * int result = 0; int i = 0; int j = 0; boolean added = false;
- * HashSet<Character> set = new HashSet<>();
- * 
- * while (j < s.length()) {
- * 
- * Character key = s.charAt(j);
- * 
- * if (key == ' ') { key = null; } added = set.add(key);
- * 
- * if (!added) { result = Math.max(j - i, result);
- * 
- * while (key != null && key != s.charAt(i)) { i++; } i++;
- * 
- * } else { result = Math.max(j - i + 1, result); } j++; } return result; }
- */
