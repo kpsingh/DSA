@@ -15,7 +15,43 @@ public class FruitIntoBaskets_904 {
 
 	}
 
-	public static int totalFruit(int[] arr) {
+	// https://leetcode.com/problems/fruit-into-baskets/solutions/2960000/fruit-into-baskets/
+
+	public static int totalFruit(int[] fruits) {
+		// We use a hash map 'basket' to store the number of each type of fruit.
+		Map<Integer, Integer> map = new HashMap<>();
+
+		int left = 0, ans = 0;
+
+		// Add fruit from the right index (right) of the window.
+		for (int right = 0; right < fruits.length; ++right) {
+
+			map.put(fruits[right], map.getOrDefault(fruits[right], 0) + 1);
+
+			// If the current window has more than 2 types of fruit,
+			// we remove fruit from the left index (left) of the window,
+			// until the window has only 2 types of fruit.
+
+			while (map.size() > 2) {
+
+				map.put(fruits[left], map.get(fruits[left]) - 1);
+
+				if (map.get(fruits[left]) == 0) {
+					map.remove(fruits[left]);
+				}
+
+				left++;
+			}
+
+			// Update maxPicked.
+			ans = Math.max(ans, right - left + 1);
+		}
+
+		// Return maxPicked as the maximum number of fruits we can collect.
+		return ans;
+	}
+
+	public static int totalFruit_MY(int[] arr) {
 		if (arr.length <= 2) {
 			return arr.length; // if <= 2 then that is the option
 		}
