@@ -1,5 +1,6 @@
 package com.algo.slidingwindow;
 
+import java.awt.desktop.OpenURIHandler;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,40 @@ public class MaximumSumSubarrayOfSizeK {
 
 		System.out.println("getMaxSum_3 : " + getMaxSum_3(arr, w));
 
+		System.out.println("getMaxSumRevision : " + getMaxSumRevision(arr, w));
+
+	}
+
+	// revision
+
+	private static int getMaxSumRevision(int[] arr, int k) {
+
+		if (arr.length < k) {
+			return -1;
+		}
+
+		int sum = 0;
+		int max = Integer.MIN_VALUE;
+		int left = 0;
+		int right = 0;
+
+		while (right < arr.length) {
+
+			sum = sum + arr[right];
+
+			if (right - left + 1 == k) {
+
+				max = Math.max(max, sum);
+				sum = sum - arr[left];
+				left++;
+			}
+
+			right++;
+
+		}
+
+		return max;
+
 	}
 
 	// approach 3
@@ -32,9 +67,9 @@ public class MaximumSumSubarrayOfSizeK {
 			sum += arr[j];
 
 			if (j - i == w) {
-				
+
 				sum = sum - arr[i];
-				
+
 				max = Math.max(max, sum);
 				i++;
 				j++;
