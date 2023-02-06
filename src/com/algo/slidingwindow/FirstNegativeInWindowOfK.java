@@ -1,7 +1,16 @@
 package com.algo.slidingwindow;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+/*
+ * https://www.geeksforgeeks.org/first-negative-integer-every-window-size-k/
+ * 
+ * 
+ */
 import java.util.List;
+import java.util.Queue;
+
+import org.w3c.dom.ls.LSOutput;
 
 public class FirstNegativeInWindowOfK {
 	public static void main(String[] args) {
@@ -9,7 +18,55 @@ public class FirstNegativeInWindowOfK {
 		int w = 3;
 
 		printFirstNegative(arr, w);
+		
+		System.out.println("**************");
 
+		printFirstNegativeRevision(arr, w);
+
+	}
+
+	private static void printFirstNegativeRevision(int[] arr, int w) {
+
+		if (arr.length < w) {
+			System.out.println("Invalid input");
+		}
+
+		List<Integer> ansList = new ArrayList<>();
+		Queue<Integer> que = new LinkedList<>();
+
+		int left = 0;
+		int right = 0;
+
+		while (right < arr.length) {
+
+			int element = arr[right];
+
+			if (element < 0) {
+				que.offer(element);
+			}
+
+			if (right - left + 1 == w) {
+
+				if (que.size() == 0) {
+					ansList.add(0);
+				} else {
+					ansList.add(que.peek());
+					if (arr[left] == que.peek()) {
+						que.poll();
+					}
+				}
+
+				left++;
+			}
+
+			right++;
+		}
+
+		for (int a : ansList) {
+			System.out.print(a + " ");
+		}
+
+		// ansList.stream().mapToInt(e -> e).forEach(System.out.prinln(e.));
 	}
 
 	private static void printFirstNegative(int[] arr, int w) {
@@ -37,7 +94,7 @@ public class FirstNegativeInWindowOfK {
 				if (list.size() == 0) {
 					System.out.println(0);
 				} else { // otherwise print the very first element
-					System.out.println(list.get(0));
+					System.out.print(list.get(0) + " ");
 
 				}
 

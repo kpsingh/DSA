@@ -17,7 +17,59 @@ public class ContNumberOfAnagrams_438 {
 
 		List<Integer> countOfAnagrams = getCount(s, p);
 		System.out.println(countOfAnagrams);
-		
+
+		getCountRevision(s, p);
+	}
+
+	private static void getCountRevision(String s, String t) {
+
+		if (s.length() < t.length()) {
+
+			return;
+		}
+
+		Map<Character, Integer> map = new HashMap<>();
+		for (int i = 0; i < t.length(); i++) {
+			Character key = t.charAt(i);
+			map.put(key, map.getOrDefault(key, 0) + 1);
+		}
+
+		int ans = 0;
+		int count = map.size();
+		int left = 0;
+		int right = 0;
+
+		while (right < s.length()) {
+
+			Character key = s.charAt(right);
+
+			if (map.containsKey(key)) {
+
+				map.put(key, map.get(key) - 1);
+				
+				if (map.get(key) == 0) {
+					count--;
+				}
+
+				if (right - left + 1 == t.length()) {
+
+					if (count == 0) {
+						ans++;
+					}
+					Character key2 = s.charAt(left);
+
+					if (map.containsKey(key2)) {
+
+						map.put(key2, map.get(key2) + 1);
+					}
+
+					left++;
+				}
+			}
+			right++;
+		}
+
+		System.out.println(ans);
 	}
 
 	private static List<Integer> getCount(String str, String ptr) {
