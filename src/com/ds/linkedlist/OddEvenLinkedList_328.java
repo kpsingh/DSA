@@ -25,5 +25,29 @@ public class OddEvenLinkedList_328 {
 		return head1;
 
 	}
+	
+	 public ListNode oddEvenList_V2(ListNode head) {
+	        if (head == null || head.next == null){
+	            return head;
+	        }
+
+	        ListNode h1 = head;
+	        ListNode h2 = head.next;
+	        ListNode head2 = head.next;
+
+	        while (h1 != null && h2 != null){
+	            h1.next = h2.next;
+	            if(h1.next != null){
+	                h1 = h1.next;
+	            }
+	            h2.next = h1.next;
+	            h2 = h2.next;
+	        }
+
+	        h1.next = head2;
+	        return head;
+
+
+	    }
 
 }
