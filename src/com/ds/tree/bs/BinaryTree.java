@@ -79,6 +79,22 @@ class BinaryTree {
 
 	}
 
+	public List<Integer> preorderTraversal_Advance(TreeNode root) {
+
+		List<Integer> ans = new LinkedList<>();
+		Deque<TreeNode> deq = new LinkedList<>();
+		while (root != null || !deq.isEmpty()) {
+			if (root != null) {
+				ans.add(root.val);
+				deq.offerLast(root);
+				root = root.left;
+			} else {
+				root = deq.pollLast().right;
+			}
+		}
+		return ans;
+	}
+
 	// DFS Traversal
 	public void inOrder(TreeNode root) {
 
