@@ -1,7 +1,9 @@
 package com.ds.tree.bs;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -114,6 +116,28 @@ class BinaryTree {
 				node = node.right;
 			}
 		}
+		return inorder;
+
+	}
+
+	public List<Integer> inOrderIterative_Advance(TreeNode root) {
+
+		List<Integer> inorder = new ArrayList<>();
+
+		// now it is recommendedn to use DeQueue instead of Stack
+		Deque<TreeNode> deq = new ArrayDeque<>();
+
+		while (root != null || deq != null) {
+			if (root != null) {
+				deq.offerLast(root);
+				root = root.left;
+			} else {
+				inorder.add(deq.peekLast().val);
+				root = deq.pollLast().right;
+			}
+
+		}
+
 		return inorder;
 
 	}
