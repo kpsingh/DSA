@@ -1,10 +1,8 @@
-package com.ds.tree.bst;
+package com.ds.tree.bs;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
-import com.ds.tree.bs.TreeNode;
 
 public class BinarySearchTree {
 

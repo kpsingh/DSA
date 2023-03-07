@@ -1,6 +1,4 @@
-package com.ds.tree.bst;
-
-import com.ds.tree.bs.TreeNode;
+package com.ds.tree.bs;
 
 public class IsValidBST_98 {
 

@@ -8,9 +8,11 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 import java.util.Stack;
+import java.util.TreeMap;
 
 class BinaryTree {
 
@@ -38,6 +40,86 @@ class BinaryTree {
 
 		return root;
 	}
+
+	// ******** VERTICAL ORDER - Start ********
+
+	/**
+	 * Unsing the TreeMap since the order matter for row entries and colums entris
+	 * as well
+	 * 
+	 * this map will be a column map, each column as key and the value -- since a
+	 * column can have multiple row and each row can have list o of values value for
+	 * each colmn map is also a map and we say it row map. row map will have row num
+	 * as key and then value in list. Since we want the values to be orderede for
+	 * each row and col hence using the TreeMap key - colmn number val - row map for
+	 * each coln
+	 */
+
+	private Map<Integer, Map<Integer, List<Integer>>> map = new TreeMap<>();
+
+	public List<List<Integer>> verticalTraversal(TreeNode root) {
+		List<List<Integer>> ans = new ArrayList<>();
+		if (root == null) {
+			return ans;
+		}
+		// The root of the tree is at (0, 0)
+		inOrder(root, 0, 0);
+
+		map.entrySet().stream().forEach(col -> {
+			List<Integer> verticalOrder = new ArrayList<>();
+			col.getValue().entrySet().stream().forEach(row -> {
+				Collections.sort(row.getValue());
+				verticalOrder.addAll(row.getValue());
+			});
+			ans.add(verticalOrder);
+		});
+
+		return ans;
+
+	}
+
+	private void inOrder(TreeNode root, int row, int col) {
+		if (root == null) {
+			return;
+		}
+		// Do some logic and then call for the root.left and right.right subtree
+
+		Map<Integer, List<Integer>> levelMap = null; // each colum will have this map, and internally colum map wil have
+														// the entry for each row.
+		List<Integer> list = null; // this list will have entry for each row for a given column
+
+		// check if that column is present or not
+		if (!map.containsKey(col)) {
+			// if colum is not present then create one and create one row map and add
+			list = new ArrayList<>();
+			list.add(root.val);
+			levelMap = new TreeMap<>();
+			levelMap.put(row, list);
+			map.put(col, levelMap);
+
+		} else {
+			// if column entry exist then cehck if this row is exit for coumn or not
+			levelMap = map.get(col);
+			// check if for given colum, this row is present or not
+
+			if (!levelMap.containsKey(row)) {
+				// if row is not present then add new row
+				list = new ArrayList<>();
+				list.add(root.val);
+				levelMap.put(row, list);
+			} else {
+				// if the row is already present then add on the list of row
+				levelMap.get(row).add(root.val);
+			}
+
+		}
+
+		inOrder(root.left, row + 1, col - 1);
+		inOrder(root.right, row + 1, col + 1);
+
+	}
+
+	// ******** VERTICAL ORDER - END ********
 
 	// DFS Traversal
 	public void preOrder(TreeNode root) {
