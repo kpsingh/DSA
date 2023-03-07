@@ -42,8 +42,13 @@ class BinaryTree {
 	}
 
 	// ******** VERTICAL ORDER - Start ********
+	
+	
 
 	/**
+	 * 
+	 * https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/submissions/906993672/
+	 * 
 	 * Unsing the TreeMap since the order matter for row entries and colums entris
 	 * as well
 	 * 
