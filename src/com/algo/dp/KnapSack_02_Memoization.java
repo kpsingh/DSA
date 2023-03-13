@@ -1,6 +1,6 @@
 package com.algo.dp;
 
-public class KnapSack_01_Memoization {
+public class KnapSack_02_Memoization {
 
 	private static int[][] dp;
 
