@@ -11,8 +11,10 @@ public class KnapSack_02_Memoization {
 		int[] weight = { 30, 10, 5, 20 }; // weight array
 		int n = weight.length; // number of element left
 
+		// we have to make matrix of those variables whihc are chnaging.. here capacity
+		// and no of elements are changing
 		dp = new int[n + 1][capacity + 1];
-
+		
 		knapSack(capacity, profit, weight, n);
 
 		System.out.println(dp[n][capacity]);
@@ -44,6 +46,7 @@ public class KnapSack_02_Memoization {
 		if (weight[n - 1] > capacity) {
 			// do not include this item
 			result = knapSack(capacity, profit, weight, n - 1);
+			
 		} else {
 			result = Math.max((profit[n - 1] + knapSack(capacity - weight[n - 1], profit, weight, n - 1)),
 					knapSack(capacity, profit, weight, n - 1));
@@ -54,9 +57,7 @@ public class KnapSack_02_Memoization {
 		 * include or exclude the item.
 		 */
 
-		dp[n][capacity] = result;
-
-		return dp[n][capacity];
+		return dp[n][capacity] = result;
 
 	}
 
