@@ -3,7 +3,7 @@ package com.algo.dp;
 /*
  * A recursive implementation of 0/1 knapsack
  */
-public class KnapSack_01 {
+public class KnapSack_01_Recursive {
 
 	public static void main(String[] args) {
 
