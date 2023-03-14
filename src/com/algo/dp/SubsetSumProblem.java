@@ -47,7 +47,7 @@ public class SubsetSumProblem {
 		/*
 		 * initialization with base case
 		 * 
-		 * i - number of object j - target sum
+		 * i - number of object , j - target sum
 		 */
 
 		for (int i = 0; i <= n; i++) {
@@ -57,6 +57,7 @@ public class SubsetSumProblem {
 		}
 
 		for (int i = 1; i <= n; i++) {
+
 			for (int j = 1; j <= target; j++) {
 
 				// value/ weight of current object arr[i-1] is less than target (j)
