@@ -15,20 +15,38 @@ public class KnapSack_03_ButtomUp_OR_Tabulation {
 	}
 
 	static int knapSack(int W, int wt[], int val[], int n) {
+
 		int[][] dp = new int[n + 1][W + 1];
 
-		for (int i = 1; i <= n; i++) { // loop for items, starting from 1 items till all n items
-			for (int j = 1; j <= W; j++) // loop for capacity..starting from 1 capacity till W
-			{
+		/*
+		 * Here this loop represent items - i represent total number of items available
+		 * to pick.. either 1 item, 2 item or max n item
+		 */
+		for (int i = 1; i <= n; i++) {
+
+			/*
+			 * this loop represent the bag capacity - j value represent the present bag's
+			 * capacity... from 1 kg to W kg
+			 */
+			for (int j = 1; j <= W; j++) {
+				/*
+				 * check if present item's wait wt[i-1] is <= bag's capacity (j)
+				 */
 				if (wt[i - 1] <= j) {
-					// either we can choose the item or ignore two choces.. max of both will be
-					// taken into final consideration
+					/*
+					 * choose the max : profit with taking present item and profit without choosing
+					 * the present item
+					 */
 
 					dp[i][j] = Math.max(val[i - 1] + dp[i - 1][j - wt[i - 1]], dp[i - 1][j]);
 
 				} else {
-					// with this capacity and wait, nothing can be selected, don't select the item
-					dp[i][j] = dp[i - 1][j]; // max profit with wait "j" with out choosing the item 'i'
+					/*
+					 * If present items weight is greater than the present basg't capacity then do
+					 * not include this item
+					 */
+
+					dp[i][j] = dp[i - 1][j];
 				}
 			}
 		}
