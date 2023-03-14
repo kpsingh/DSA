@@ -51,10 +51,8 @@ public class SubsetSumProblem {
 		 */
 
 		for (int i = 0; i <= n; i++) {
-			for (int j = 0; j <= target; j++) {
-				if (j == 0) {
-					dp[i][j] = true;
-				}
+			for (int j = 0; j < 1; j++) {
+				dp[i][j] = true;
 			}
 		}
 
