@@ -37,7 +37,7 @@ public class SubsetSumProblem {
 	}
 
 	/**
-	 * Dynamic Programing - Bottom Up
+	 * Dynamic Programming - Bottom Up
 	 */
 
 	private static boolean subsetSum(int[] arr, int n, int target) {
@@ -61,6 +61,7 @@ public class SubsetSumProblem {
 			for (int j = 1; j <= target; j++) {
 
 				// value/ weight of current object arr[i-1] is less than target (j)
+				
 				if (arr[i - 1] <= j) {
 
 					dp[i][j] = dp[i - 1][j - arr[i - 1]] || dp[i - 1][j];
