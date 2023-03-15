@@ -44,6 +44,7 @@ public class PartitionEqualSubsetSum_416 {
 	 */
 
 	private static boolean canPartition(int[] weight, int n, int target) {
+
 		boolean[][] dp = new boolean[n + 1][target + 1];
 
 		for (int i = 0; i < 1; i++) {
