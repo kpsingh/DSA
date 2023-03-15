@@ -16,14 +16,14 @@ public class PartitionEqualSubsetSum_416 {
 		}
 
 		int target = sumTotal / 2;
-		boolean result = partisionSum(arr, arr.length, target);
+		boolean result = canPartition(arr, arr.length, target);
 		System.out.println(result);
 	}
 
 	/*
 	 * Recursive : Brute Force
 	 */
-	private static boolean partisionSum(int[] arr, int n, int target) {
+	private static boolean canPartition_BF(int[] arr, int n, int target) {
 
 		if (target == 0) {
 			return true;
@@ -33,10 +33,39 @@ public class PartitionEqualSubsetSum_416 {
 		}
 
 		if (arr[n - 1] <= target) {
-			return partisionSum(arr, n - 1, target - arr[n - 1]) || partisionSum(arr, n - 1, target);
+			return canPartition_BF(arr, n - 1, target - arr[n - 1]) || canPartition_BF(arr, n - 1, target);
 		} else {
-			return partisionSum(arr, n - 1, target);
+			return canPartition_BF(arr, n - 1, target);
 		}
+
+	}
+	/*
+	 * Dynamic Programming
+	 */
+
+	private static boolean canPartition(int[] weight, int n, int target) {
+		boolean[][] dp = new boolean[n + 1][target + 1];
+
+		for (int i = 0; i < 1; i++) {
+			dp[i][0] = true; // if target is ZERO then we can have it in all items i= 1...n
+		}
+
+		for (int item = 1; item <= n; item++) {
+
+			for (int capacity = 1; capacity <= target; capacity++) {
+				/*
+				 * if the value of current item is <= left capacity
+				 */
+				if (weight[item - 1] <= capacity) {
+					dp[item][capacity] = dp[item - 1][capacity] || dp[item - 1][capacity - weight[item - 1]];
+				} else {
+					// no capacity left so exlude the current item
+					dp[item][capacity] = dp[item - 1][capacity];
+				}
+			}
+		}
+
+		return dp[n][target];
 
 	}
 
