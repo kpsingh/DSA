@@ -30,8 +30,11 @@ public class CountSubsetsSumEqualK {
 		}
 
 		if (arr[n - 1] <= target) {
+
 			countSubsetsSumEqualK_BF(arr, n - 1, target - arr[n - 1]);
+
 			countSubsetsSumEqualK_BF(arr, n - 1, target);
+
 		} else {
 			countSubsetsSumEqualK_BF(arr, n - 1, target);
 		}
@@ -41,6 +44,7 @@ public class CountSubsetsSumEqualK {
 	/*
 	 * DP - Bottom Up
 	 */
+	
 	private static void countSubsetsSumEqualK(int[] arr, int n, int sum) {
 
 		int[][] dp = new int[n + 1][sum + 1];
@@ -54,9 +58,9 @@ public class CountSubsetsSumEqualK {
 
 			for (int target = 1; target <= sum; target++) {
 
-				if (arr[n - 1] <= target) {
+				if (arr[item - 1] <= target) {
 
-					dp[item][target] = dp[item - 1][target - arr[n - 1]];
+					dp[item][target] = dp[item - 1][target - arr[n - 1]] + dp[item - 1][target];
 
 				} else {
 					dp[item][target] = dp[item - 1][target];
