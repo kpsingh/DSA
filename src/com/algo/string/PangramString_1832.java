@@ -12,6 +12,7 @@ public class PangramString_1832 {
 
 		boolean isPanagram = checkIfPangram(s);
 		System.out.println(isPanagram);
+		System.out.println(checkIfPangram_V2(s));
 
 		System.out.println((int) 'a'); // 97
 
@@ -29,6 +30,26 @@ public class PangramString_1832 {
 			}
 		}
 
+		return true;
+
+	}
+
+	public static boolean checkIfPangram_V2(String sentence) {
+
+		if (sentence.length() < 26) {
+			return false;
+		}
+
+		int[] arr = new int[26];
+
+		for (int i = 0; i < sentence.length(); i++) {
+			arr[sentence.charAt(i) - 'a'] = 1;
+		}
+
+		for (int a : arr) {
+			if (a == 0)
+				return false;
+		}
 		return true;
 
 	}
